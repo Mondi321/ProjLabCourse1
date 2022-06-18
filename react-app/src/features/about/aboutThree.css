@@ -1,0 +1,61 @@
+.aboutThree{
+    width: 100%;
+    height: 80vh;
+    background-color: rgb(81, 51, 17);
+    position: relative;
+}
+
+.aboutThree h1{
+    text-align: center;
+    color: rgb(121, 84, 29);
+    padding-top: 20px;
+    margin-bottom: 15px;
+}
+.aboutThree h4{
+    text-align: center;
+    color: rgb(192, 133, 45);
+    width: 60%;
+}
+
+.aboutThree-foto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    margin-top: 40px;
+}
+
+.aboutThree-foto img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.aboutThree-pershkrimi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutThree .aboutThreeHr1{
+    height: 10px;
+    background-color: rgb(103, 72, 25);
+    border: none;
+    position: absolute;
+    width: 60%;
+    left: 40%;
+    opacity: 1;
+}
+
+.aboutThree .aboutThreeHr2{
+    height: 10px;
+    background-color: rgb(103, 72, 25);
+    border: none;
+    position: absolute;
+    width: 80%;
+    opacity: 1;
+    top: 93%;
+    left: 20%;
+}

@@ -1,0 +1,64 @@
+.aboutOne{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: rgb(81, 51, 17);
+}
+
+.aboutOnePermbajtja{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.aboutOnePermbajtja img{
+    width: 40%;
+    height: 70%;
+    border-radius: 20px;
+}
+
+.aboutOnePermbajtja .aboutOnePershkrimi{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutOnePershkrimi h2{
+    margin-bottom: 50px;
+    width: 60%;
+    text-align: start;
+    color: rgb(121, 84, 29);
+}
+
+.aboutOnePershkrimi p{
+    width: 60%;
+    text-align: start;
+    font-style: italic;
+    color: rgb(192, 133, 45);
+}
+
+.aboutOne .aboutOneHr1{
+    height: 10px;
+    background-color: rgb(103, 72, 25);
+    border: none;
+    position: absolute;
+    width: 60%;
+    left: 40%;
+    top: 90%;
+    opacity: 1;
+}
+
+.aboutOne .aboutOneHr2{
+    height: 10px;
+    background-color: rgb(103, 72, 25);
+    border: none;
+    position: absolute;
+    width: 80%;
+    left: 20%;
+    top: 95%;
+    opacity: 1;
+}

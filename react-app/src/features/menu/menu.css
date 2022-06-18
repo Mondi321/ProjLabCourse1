@@ -1,0 +1,85 @@
+.menuPage{
+    min-height: 80vh;
+    background-color: #1a1814;
+    position: relative;
+}
+
+.menuPage h2{
+    color: #ffb03b;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+.menuPage hr{
+    background-color: rgb(192, 163, 1);
+    height: 10px;
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    width: 90%;
+}
+
+.kategorite ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 60px;
+    font-size: 15pt;
+    color: white;
+}
+
+.kategorite ul li:hover{
+    color: #ffb03b;
+    cursor: pointer;
+}
+
+.kategorite .active{
+    color: #ffb03b;
+}
+
+.food{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.food-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+    margin-top: 20px;
+}
+
+.food-section img{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.food-section .pershkrimi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: white;
+}
+
+.pershkrimi .emri-cmimi{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.pershkrimi .perberesit{
+    width: 300px;
+    text-align: start;
+}

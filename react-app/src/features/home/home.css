@@ -1,0 +1,21 @@
+.carousel img{
+    height: 100vh;
+    opacity: 0.4 !important;
+}
+
+.carousel-item{
+    background: rgb(0, 0, 0) !important;
+}
+
+.carousel{
+    position: relative !important;
+    z-index: 19;
+}
+
+.carousel-caption{
+    bottom: 40%;
+}
+
+.sectionOne{
+    position: relative;
+}

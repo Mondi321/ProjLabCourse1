@@ -1,0 +1,49 @@
+.sectionSix{
+    height: 80vh;
+}
+
+.sectionSix h1{
+    text-align: center;
+    color: #2b2314;
+    padding-top: 50px;
+}
+.customers-Six{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    flex-wrap: wrap;
+}
+
+.customerSix{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+}
+
+.foto-emri-six{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    width: 400px;
+    gap: 10px;
+}
+
+.foto-emri-six img{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.reviewSix{
+    text-align: start;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: rgb(178, 178, 178);
+    border-radius: 40px;
+    width: 400px;
+}
