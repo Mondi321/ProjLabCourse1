@@ -19,41 +19,49 @@ import HomeNavbar from './HomeNavbar';
 import ComponentThree from '../../features/about/ComponentThree';
 import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponent';
+import PijeDashboard from '../../features/pijet/dashboard/PijeDashboard';
+import PijeDetail from '../../features/pijet/details/PijeDetail';
+import PijeForm from '../../features/pijet/form/PijeForm';
+import EmbelsiraDashboard from '../../features/embelsirat/dashboard/EmbelsiraDashboard';
+import EmbelsiraDetail from '../../features/embelsirat/details/EmbelsiraDetail';
+import EmbelsiraForm from '../../features/embelsirat/form/EmbelsiraForm';
+import ContactDashboard from '../../features/contact/dashboard/ContactDashboard';
+import ContactFormEdit from '../../features/contact/form/ContactFormEdit';
 
 function App() {
   const location = useLocation();
-  const {commonStore, userStore} = useStore();
+  const { commonStore, userStore } = useStore();
 
   useEffect(() => {
-    if (commonStore.token){
+    if (commonStore.token) {
       userStore.getUser().finally(() => commonStore.setAppLoaded());
-    }else{
+    } else {
       commonStore.setAppLoaded();
     }
   }, [commonStore, userStore])
-  
-  if(!commonStore.appLoaded) return <LoadingComponent />
+
+  if (!commonStore.appLoaded) return <LoadingComponent />
 
   return (
     <>
-      <ToastContainer position='bottom-right' hideProgressBar/>
+      <ToastContainer position='bottom-right' hideProgressBar />
       <Switch>
-        <Route 
+        <Route
           path="(/sign-in|/sign-up)"
           render={() => (
-            <Forms/>
-          )}  
+            <Forms />
+          )}
         />
-        <Route exact path='/' component={HomePage}/>
-        <Route 
+        <Route exact path='/' component={HomePage} />
+        <Route
           path='/home' component={ComponentOne}
         />
 
-        <Route 
+        <Route
           path='/menu' component={ComponentTwo}
         />
 
-        <Route 
+        <Route
           path='/contact' render={() => (
             <>
               <HomeNavbar />
@@ -62,7 +70,7 @@ function App() {
           )}
         />
 
-        <Route 
+        <Route
           path='/about' component={ComponentThree}
         />
 
@@ -75,12 +83,54 @@ function App() {
                 <Route exact path='/ushqimet' component={UshqimiDashboard} />
                 <Route path='/ushqimet/:id' component={UshqimiDetail} />
                 <Route key={location.key} path={['/createUshqimi', '/manage/:id']} component={UshqimiForm} />
-                <Route path='/errors' component={TestErrors}/>
-                <Route path='/server-error' component={ServerError}/>
+                <Route path='/errors' component={TestErrors} />
+                <Route path='/server-error' component={ServerError} />
               </Container>
             </>
           )}
         />
+
+        <Route
+          path={'/(pijet|createPije|managePije)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/pijet' component={PijeDashboard} />
+                <Route path='/pijet/:id' component={PijeDetail} />
+                <Route key={location.key} path={['/createPije', '/managePije/:id']} component={PijeForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(embelsirat|createEmbelsira|manageEmbelsira)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/embelsirat' component={EmbelsiraDashboard} />
+                <Route path='/embelsirat/:id' component={EmbelsiraDetail} />
+                <Route key={location.key} path={['/createEmbelsira', '/manageEmbelsira/:id']} component={EmbelsiraForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(contacts|manageContact)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/contacts' component={ContactDashboard} />
+                <Route path='/manageContact/:id' component={ContactFormEdit} />
+              </Container>
+            </>
+          )}
+        />
+
         <Route component={NotFound} />
       </Switch>
     </>

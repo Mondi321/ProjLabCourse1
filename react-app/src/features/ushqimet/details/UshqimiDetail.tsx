@@ -21,7 +21,7 @@ export default observer(function UshqimiDetail() {
     if (loadingInitial || !ushqimi) return <LoadingComponent />;
     return (
         <Col md={{ span: 4, offset: 4 }}>
-            <Card border='primary' className='mt-4'>
+            <Card border='primary' style={{marginTop: '85px'}}>
                 <Card.Img style={{height: '200px'}} variant="top" src={`/assets/${ushqimi.emri}.jpg`} />
                 <Card.Body>
                     <Card.Title>{ushqimi.emri}</Card.Title>

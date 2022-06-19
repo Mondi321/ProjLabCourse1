@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
-import {  Col, Container, Row } from "react-bootstrap";
+import {  Container, Row } from "react-bootstrap";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 import UshqimiList from "./UshqimiList";
@@ -17,15 +17,10 @@ export default observer( function UshqimiDashboard() {
       
       if (ushqimiStore.loadingInitial) return <LoadingComponent />
   return (
-    <Container>
-      <Row>
-        <Col md={{ span: 8, offset: 2 }}>
-          <UshqimiList/>
-        </Col>
-        <Col >
-        </Col>
+    <Container style={{marginTop: '90px'}}>
+      <Row md={2}>
+        <UshqimiList />
       </Row>
-          
     </Container>
   )
 })

@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
-import { Button, Card, Col } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useStore } from '../../../app/stores/store';
 
@@ -9,9 +9,9 @@ export default observer (function UshqimiList() {
     const {ushqimiStore} = useStore(); 
     const {ushqimetByCmimi, deleteUshqimi} = ushqimiStore;  
   return (
-    <Col className='mt-4'>
+    <>
         {ushqimetByCmimi.map(ushqimi => (
-            <Card key={ushqimi.id} border = 'primary'>
+            <Card key={ushqimi.id} border = 'primary' style={{width: '548px', margin: '5px'}}>
                 <Card.Body>
                     <Card.Title>
                         {ushqimi.emri}
@@ -32,6 +32,6 @@ export default observer (function UshqimiList() {
                 </Card.Body>
             </Card>
         ))}
-    </Col>
+    </>
   )
 })

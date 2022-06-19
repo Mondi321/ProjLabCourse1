@@ -105,6 +105,7 @@ export default class UshqimiStore{
     }
 
     deleteUshqimi = async (id: string) => {
+        window.location.reload();
         try {
             await agent.Ushqimet.delete(id);
             runInAction(() => {

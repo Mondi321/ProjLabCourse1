@@ -1,7 +1,9 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { config } from "process";
 import { toast } from "react-toastify";
 import { history } from "../..";
+import { Contact } from "../models/contact";
+import { Embelsira } from "../models/embelsira";
+import { Pije } from "../models/pije";
 import { User, UserFormValues } from "../models/user";
 import { Ushqimi } from "../models/ushqimi";
 import { store } from "../stores/store";
@@ -70,6 +72,14 @@ const requests = {
     delete: <T>(url: string) => axios.delete<T>(url).then(responseBody),
 }
 
+const Pijet = {
+    list: () => requests.get<Pije[]>('/pije'),
+    details: (id: string) => requests.get<Pije>(`/pije/${id}`),
+    create: (pije: Pije) => requests.post<void>('/pije', pije),
+    update: (pije: Pije) => requests.put<void>(`/pije/${pije.id}`, pije),
+    delete: (id: string) => requests.delete<void>(`/pije/${id}`)
+}
+
 const Ushqimet ={
     list: () => requests.get<Ushqimi[]>('/ushqimi'),
     details: (id: string) => requests.get<Ushqimi>(`/ushqimi/${id}`),
@@ -78,15 +88,34 @@ const Ushqimet ={
     delete: (id: string) => requests.delete<void>(`/ushqimi/${id}`)
 }
 
+const Embelsirat = {
+    list: () => requests.get<Embelsira[]>('/embelsira'),
+    details: (id: string) => requests.get<Embelsira>(`/embelsira/${id}`),
+    create: (embelsira: Embelsira) => requests.post<void>('/embelsira', embelsira),
+    update: (embelsira: Embelsira) => requests.put<void>(`/embelsira/${embelsira.id}`, embelsira),
+    delete: (id: string) => requests.delete<void>(`/embelsira/${id}`)
+}
+
 const Account ={
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
     register: (user: UserFormValues) => requests.post<User>('/account/register', user)
 }
 
+const Contacts = {
+    list: () => requests.get<Contact[]>('/contact'),
+    details: (id: string) => requests.get<Contact>(`/contact/${id}`),
+    create: (contact: Contact) => requests.post<void>('/contact', contact),
+    update: (contact: Contact) => requests.put<void>(`/contact/${contact.id}`, contact),
+    delete: (id: string) => requests.delete<void>(`/contact/${id}`)
+}
+
 const agent ={
     Ushqimet,
-    Account
+    Account,
+    Pijet,
+    Embelsirat,
+    Contacts
 }
 
 export default agent;

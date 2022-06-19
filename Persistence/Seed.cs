@@ -105,6 +105,29 @@ namespace Persistence
                 await context.Embelsirat.AddRangeAsync(embelsirat);
             }
 
+            if (!context.Contacts.Any())
+            {
+                var contacts = new List<Contact>
+                {
+                    new Contact
+                    {
+                        Emri = "emri 1",
+                        Email = "emri1@test.com",
+                        Subject = "Problem 1",
+                        Numri = 044111111,
+                        Mesazhi = "Mesazhi 123456"
+                    },
+                    new Contact
+                    {
+                        Emri = "emri 2",
+                        Email = "emri2@test.com",
+                        Subject = "Problem 2",
+                        Numri = 044111222,
+                        Mesazhi = "Mesazhi 2222222"
+                    }
+                };
+                await context.Contacts.AddRangeAsync(contacts);
+            }
 
             
             await context.SaveChangesAsync();

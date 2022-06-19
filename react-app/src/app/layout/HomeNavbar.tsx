@@ -24,7 +24,7 @@ export default observer(function HomeNavbar() {
     window.addEventListener('scroll', changeNavbarColor);
     return (
         <>
-            <nav className={colorChange ? 'navbar colorChange' : 'navbar'}>
+            <nav className={colorChange ? 'navbarHome colorChange' : 'navbarHome'}>
                 <div className="nav-container">
                     <NavLink exact to="/" className="nav-logo">
                         SONA
@@ -77,13 +77,13 @@ export default observer(function HomeNavbar() {
                         </li>
                     </ul>
                     <div className='image-information'>
-                        <Image style={{ height: '40px', width: '40px', marginBottom: '10px' }} roundedCircle src={user?.image || '/assets/user.png'} />
+                        <Image style={{ height: '40px', width: '40px'}} roundedCircle src={user?.image || '/assets/user.png'} />
                         <NavDropdown
                             id="nav-dropdown-dark-example"
                             title={user?.displayName}
-                            menuVariant="light"
+                            menuVariant="dark"
                         >
-                            <NavDropdown.Item>Another action</NavDropdown.Item>
+                            <NavDropdown.Item href='/ushqimet'>Dashboard</NavDropdown.Item>
                             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                         </NavDropdown>
                     </div>

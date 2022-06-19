@@ -72,7 +72,7 @@ export default observer(function UshqimiForm() {
                             >
                                 <Spinner
                                     as="span"
-                                    animation="border"
+                                    animation="border"  
                                     size="sm"
                                     role="status"
                                     aria-hidden="true"

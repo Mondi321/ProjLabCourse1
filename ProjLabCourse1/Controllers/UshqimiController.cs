@@ -9,7 +9,6 @@ using Persistence;
 
 namespace ProjLabCourse1.Controllers
 {
-    [AllowAnonymous]
     public class UshqimiController : BaseApiController
     {
         [HttpGet]

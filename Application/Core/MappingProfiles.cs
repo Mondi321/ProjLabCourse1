@@ -15,6 +15,7 @@ namespace Application.Core
             CreateMap<Ushqimi, Ushqimi>();
             CreateMap<Pije, Pije>();
             CreateMap<Embelsira, Embelsira>();
+            CreateMap<Contact, Contact>();
         }
     }
 }

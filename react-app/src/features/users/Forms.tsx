@@ -8,7 +8,7 @@ export default function Forms() {
         <>
             <div className="App">
                 <div className="appAside">
-                    <img src="/assets/restaurant-img.jpg" alt=''/>
+                    <img src="/assets/formFoto.jpg" alt=''/>
                 </div>
                 <div className="appForm">
                     <div className="pageSwitcher">

@@ -49,14 +49,14 @@
     gap: 50px;
 }
 
-.contactForm button{
+.contactForm .button{
     align-self: flex-end;
     padding: 10px 20px;
     background-color: #ffb03b;
     border-radius: 30px;
 }
 
-.contactForm button:hover{
+.contactForm .button:hover{
     background-color: #ae7929;
 }
 

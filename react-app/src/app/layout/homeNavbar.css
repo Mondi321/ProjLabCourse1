@@ -1,4 +1,4 @@
-.navbar {
+.navbarHome {
     background-color: transparent;
     height: 80px;
     width: 100%;
@@ -11,7 +11,7 @@
     z-index: 20;
   }
 
-  .navbar.colorChange{
+  .navbarHome.colorChange{
     background-color: rgb(0, 0, 0);
     opacity: 0.9;
     height: 80px;
@@ -45,6 +45,7 @@
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: 500;
+    margin-top: 10px;
   }
   
   .nav-menu {
@@ -52,6 +53,7 @@
     list-style: none;
     text-align: center;
     margin-right: 2rem;
+    margin-top: 20px;
   }
   
   .nav-links {
@@ -151,3 +153,7 @@
     color: white;
     font-size: 14pt;
   }
+
+  /* .navbarHome .dropdown-menu-light a{
+    text-decoration: none;
+  } */
