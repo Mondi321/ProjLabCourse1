@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
+    
     public class Pije
     {
         public Guid Id { get; set; }
