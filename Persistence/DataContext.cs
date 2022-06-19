@@ -16,5 +16,7 @@ namespace Persistence
         }
 
         public DbSet<Ushqimi> Ushqimet { get; set; }
+        public DbSet<Pije> Pijet { get; set; }
+        public DbSet<Embelsira> Embelsirat { get; set; }
     }
 }

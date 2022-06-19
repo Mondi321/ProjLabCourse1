@@ -13,6 +13,8 @@ namespace Application.Core
         public MappingProfiles()
         {
             CreateMap<Ushqimi, Ushqimi>();
+            CreateMap<Pije, Pije>();
+            CreateMap<Embelsira, Embelsira>();
         }
     }
 }
