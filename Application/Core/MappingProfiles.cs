@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using Application.Qytetet;
+using Application.Stafis;
+using AutoMapper;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,10 @@ namespace Application.Core
             CreateMap<Pije, Pije>();
             CreateMap<Embelsira, Embelsira>();
             CreateMap<Contact, Contact>();
+            CreateMap<Gjinia, Gjinia>();
+            CreateMap<Shteti, Shteti>();
+            CreateMap<Qyteti, QytetiDto>();
+            CreateMap<Banka, Banka>();
         }
     }
 }

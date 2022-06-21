@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
@@ -10,9 +11,10 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220620140631_StafiAdded")]
+    partial class StafiAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -83,21 +85,6 @@ namespace Persistence.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Banka", b =>
-                {
-                    b.Property<int>("BankaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Emri")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("BankaId");
-
-                    b.ToTable("Bankat");
                 });
 
             modelBuilder.Entity("Domain.Contact", b =>
@@ -238,9 +225,6 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("BankaId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("DataLindjes")
                         .HasColumnType("TEXT");
 
@@ -266,8 +250,6 @@ namespace Persistence.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("StafiId");
-
-                    b.HasIndex("BankaId");
 
                     b.HasIndex("GjiniaId");
 
@@ -441,12 +423,6 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Stafi", b =>
                 {
-                    b.HasOne("Domain.Banka", "Banka")
-                        .WithMany()
-                        .HasForeignKey("BankaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Gjinia", "Gjinia")
                         .WithMany()
                         .HasForeignKey("GjiniaId")
@@ -464,8 +440,6 @@ namespace Persistence.Migrations
                         .HasForeignKey("ShtetiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Banka");
 
                     b.Navigation("Gjinia");
 

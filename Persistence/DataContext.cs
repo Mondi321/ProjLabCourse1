@@ -19,5 +19,10 @@ namespace Persistence
         public DbSet<Pije> Pijet { get; set; }
         public DbSet<Embelsira> Embelsirat { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Stafi> Stafis { get; set; }
+        public DbSet<Shteti> Shtetet { get; set; }
+        public DbSet<Qyteti> Qytetet { get; set; }
+        public DbSet<Gjinia> Gjinite { get; set; }
+        public DbSet<Banka> Bankat { get; set; }
     }
 }
