@@ -97,7 +97,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("BankaId");
 
-                    b.ToTable("Bankat");
+                    b.ToTable("Bankat", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Contact", b =>
@@ -127,7 +127,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Embelsira", b =>
@@ -149,7 +149,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Embelsirat");
+                    b.ToTable("Embelsirat", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Gjinia", b =>
@@ -164,7 +164,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("GjiniaId");
 
-                    b.ToTable("Gjinite");
+                    b.ToTable("Gjinite", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Pije", b =>
@@ -186,7 +186,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pijet");
+                    b.ToTable("Pijet", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Qyteti", b =>
@@ -206,7 +206,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ShtetiId");
 
-                    b.ToTable("Qytetet");
+                    b.ToTable("Qytetet", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Shteti", b =>
@@ -225,7 +225,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("ShtetiId");
 
-                    b.ToTable("Shtetet");
+                    b.ToTable("Shtetet", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Stafi", b =>
@@ -275,7 +275,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ShtetiId");
 
-                    b.ToTable("Stafis");
+                    b.ToTable("Stafis", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Ushqimi", b =>
@@ -297,7 +297,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ushqimet");
+                    b.ToTable("Ushqimet", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -35,6 +35,17 @@ export default function NavBar() {
                         <NavDropdown title="Contact" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/contacts">Contacts</NavDropdown.Item>
                         </NavDropdown>
+                        <NavDropdown title="Stafi" id="navbarScrollingDropdown">
+                            <NavDropdown.Item href="/stafi">Stafi</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="/shtetet">Shtetet</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="/qytetet">Qytetet</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="/gjinite">Gjinia</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="/bankat">Bankat</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProjLabCourse1.Controllers
 {
+    [AllowAnonymous]
     public class QytetiController : BaseApiController
     {
         [HttpGet]

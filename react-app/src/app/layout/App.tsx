@@ -27,6 +27,14 @@ import EmbelsiraDetail from '../../features/embelsirat/details/EmbelsiraDetail';
 import EmbelsiraForm from '../../features/embelsirat/form/EmbelsiraForm';
 import ContactDashboard from '../../features/contact/dashboard/ContactDashboard';
 import ContactFormEdit from '../../features/contact/form/ContactFormEdit';
+import ShtetiDashboard from '../../features/shtetet/dashboard/ShtetiDashboard';
+import ShtetiForm from '../../features/shtetet/form/ShtetiForm';
+import QytetiDashboard from '../../features/qytetet/dashboard/QytetiDashboard';
+import QytetiForm from '../../features/qytetet/form/QytetiForm';
+import GjiniaDashboard from '../../features/gjinite/dashboard/GjiniaDashboard';
+import GjiniaForm from '../../features/gjinite/form/GjiniaForm';
+import BankaDashboard from '../../features/bankat/dashboard/BankaDashboard';
+import BankaForm from '../../features/bankat/form/BankaForm';
 
 
 //protected route
@@ -128,6 +136,58 @@ function App() {
               <Container>
                 <Route exact path='/contacts' component={ContactDashboard} />
                 <Route path='/manageContact/:id' component={ContactFormEdit} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(shtetet|manageShteti|createShteti)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/shtetet' component={ShtetiDashboard} />
+                <Route key={location.key} path={['/createShteti', '/manageShteti/:id']} component={ShtetiForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(qytetet|manageQyteti|createQyteti)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/qytetet' component={QytetiDashboard} />
+                <Route key={location.key} path={['/createQyteti', '/manageQyteti/:id']} component={QytetiForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(gjinite|manageGjinia|createGjinia)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/gjinite' component={GjiniaDashboard} />
+                <Route key={location.key} path={['/createGjinia', '/manageGjinia/:id']} component={GjiniaForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(bankat|manageBanka|createBanka)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/bankat' component={BankaDashboard} />
+                <Route key={location.key} path={['/createBanka', '/manageBanka/:id']} component={BankaForm} />
               </Container>
             </>
           )}

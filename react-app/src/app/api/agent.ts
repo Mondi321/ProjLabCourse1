@@ -1,9 +1,13 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { history } from "../..";
+import { Banka } from "../models/banka";
 import { Contact } from "../models/contact";
 import { Embelsira } from "../models/embelsira";
+import { Gjinia } from "../models/gjinia";
 import { Pije } from "../models/pije";
+import { Qyteti } from "../models/qyteti";
+import { Shteti } from "../models/shteti";
 import { User, UserFormValues } from "../models/user";
 import { Ushqimi } from "../models/ushqimi";
 import { store } from "../stores/store";
@@ -110,12 +114,48 @@ const Contacts = {
     delete: (id: string) => requests.delete<void>(`/contact/${id}`)
 }
 
+const Shtetet = {
+    list: () => requests.get<Shteti[]>('/shteti'),
+    details: (id: number) => requests.get<Shteti>(`/shteti/${id}`),
+    create: (shteti: Shteti) => requests.post<void>('/shteti', shteti),
+    update: (shteti: Shteti) => requests.put<void>(`/shteti/${shteti.shtetiId}`, shteti),
+    delete: (id: number) => requests.delete<void>(`/shteti/${id}`)
+}
+
+const Qytetet = {
+    list: () => requests.get<Qyteti[]>('/qyteti'),
+    details: (id: number) => requests.get<Qyteti>(`/qyteti/${id}`),
+    create: (qyteti: Qyteti) => requests.post<void>('/qyteti', qyteti),
+    update: (qyteti: Qyteti) => requests.put<void>(`/qyteti/${qyteti.qytetiId}`, qyteti),
+    delete: (id: number) => requests.delete<void>(`/qyteti/${id}`)
+}
+
+const Gjinite = {
+    list: () => requests.get<Gjinia[]>('/gjinia'),
+    details: (id: number) => requests.get<Gjinia>(`/gjinia/${id}`),
+    create: (gjinia: Gjinia) => requests.post<void>('/gjinia', gjinia),
+    update: (gjinia: Gjinia) => requests.put<void>(`/gjinia/${gjinia.gjiniaId}`, gjinia),
+    delete: (id: number) => requests.delete<void>(`/gjinia/${id}`)
+}
+
+const Bankat = {
+    list: () => requests.get<Banka[]>('/banka'),
+    details: (id: number) => requests.get<Banka>(`/banka/${id}`),
+    create: (banka: Banka) => requests.post<void>('/banka', banka),
+    update: (banka: Banka) => requests.put<void>(`/banka/${banka.bankaId}`, banka),
+    delete: (id: number) => requests.delete<void>(`/banka/${id}`)
+}
+
 const agent ={
     Ushqimet,
     Account,
     Pijet,
     Embelsirat,
-    Contacts
+    Contacts,
+    Shtetet,
+    Qytetet,
+    Gjinite,
+    Bankat
 }
 
 export default agent;
