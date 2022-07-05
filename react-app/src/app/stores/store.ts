@@ -9,6 +9,8 @@ import UshqimiStore from "./ushqimiStore";
 import QytetiStore from "./qytetiStore";
 import GjiniaStore from "./gjiniaStore";
 import BankaStore from "./bankaStore";
+import StafiStore from "./stafiStore";
+import RezervimiStore from "./rezervimiStore";
 
 interface Store{
     ushqimiStore: UshqimiStore;
@@ -21,6 +23,8 @@ interface Store{
     qytetiStore: QytetiStore;
     gjiniaStore: GjiniaStore;
     bankaStore: BankaStore;
+    stafiStore: StafiStore;
+    rezervimiStore: RezervimiStore;
 }
 
 export const store: Store ={
@@ -33,7 +37,9 @@ export const store: Store ={
     shtetiStore: new ShtetiStore(),
     qytetiStore: new QytetiStore(),
     gjiniaStore: new GjiniaStore(),
-    bankaStore: new BankaStore()
+    bankaStore: new BankaStore(),
+    stafiStore: new StafiStore(),
+    rezervimiStore: new RezervimiStore()
 }
 
 export const StoreContext = createContext(store);

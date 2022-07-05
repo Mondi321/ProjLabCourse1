@@ -1,0 +1,44 @@
+.rezervimetInfo{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.rezervimetInfoFoto{
+    width: 40%;
+    height: 100%;
+}
+
+.rezervimetInfoFoto img{
+    height: 100%;
+    width: 100%;
+}
+
+.rezervimetInfoPermbajtja{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.rezervimetInfoPermbajtjaTable{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.rezervimetInfoPermbajtjaTable .rezervimetInfoPermbajtjaButton{
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+
+.rezervimetInfoPermbajtjaTable a{
+    align-self: flex-end;
+}

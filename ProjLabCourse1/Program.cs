@@ -1,7 +1,9 @@
 using Application.Core;
+using Application.Interfaces;
 using Application.Ushqimet;
 using Domain;
 using FluentValidation.AspNetCore;
+using Infrastructure.Security;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -10,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
+using ProjLabCourse1.Mapping;
 using ProjLabCourse1.Middleware;
 using ProjLabCourse1.Services;
 using System.Text;
@@ -43,6 +46,7 @@ builder.Services.AddCors(opt =>
 });
 builder.Services.AddMediatR(typeof(List.Handler).Assembly);
 builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+builder.Services.AddAutoMapper(typeof(MappingUser).Assembly);
 builder.Services.AddIdentityCore<AppUser>(opt =>
 {
     opt.Password.RequireNonAlphanumeric = false;
@@ -64,6 +68,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 builder.Services.AddScoped<TokenService>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<IUserAccessor, UserAccessor>();
 
 
 var app = builder.Build();

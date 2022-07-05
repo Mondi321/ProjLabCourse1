@@ -46,6 +46,9 @@ export default function NavBar() {
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/bankat">Bankat</NavDropdown.Item>
                         </NavDropdown>
+                        <NavDropdown title="Rezervimet" id="navbarScrollingDropdown">
+                            <NavDropdown.Item href="/rezervimet">Rezervimet</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

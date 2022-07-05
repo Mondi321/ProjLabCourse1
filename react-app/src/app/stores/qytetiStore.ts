@@ -6,6 +6,7 @@ export default class QytetiStore {
     qytetiRegistry = new Map<number, Qyteti>();
     loading = true;
     loadingInitial = false;
+    qytetetArray: Qyteti[] = [];
 
     constructor() {
         makeAutoObservable(this)
@@ -33,6 +34,20 @@ export default class QytetiStore {
             const qytetet = await agent.Qytetet.list();
             qytetet.forEach(qyteti => {
                 this.setQyteti(qyteti);
+            })
+            this.setLoadingInitial(false);
+        } catch (error) {
+            console.log(error);
+            this.setLoadingInitial(false);
+        }
+    }
+    
+    loadQytetetByShtetiId = async (id: string) => {
+        this.setLoadingInitial(true);
+        try {
+            const qytetet = await agent.Qytetet.listByShteti(id);
+            runInAction(() => {
+                this.qytetetArray = qytetet;
             })
             this.setLoadingInitial(false);
         } catch (error) {

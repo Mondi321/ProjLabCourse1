@@ -1,4 +1,6 @@
-﻿namespace ProjLabCourse1.DTOs
+﻿using Domain;
+
+namespace ProjLabCourse1.DTOs
 {
     public class UserDto
     {

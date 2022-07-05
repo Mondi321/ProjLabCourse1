@@ -1,8 +1,12 @@
+import { Rezervimi } from "./rezervimi";
+
 export interface User {
+    id?: string;
     username: string;
     displayName: string;
     token: string;
     image?: string;
+    rezervimet?: Rezervimi[];
 }
 
 export interface UserFormValues{

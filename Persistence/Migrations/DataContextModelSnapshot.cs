@@ -97,7 +97,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("BankaId");
 
-                    b.ToTable("Bankat", (string)null);
+                    b.ToTable("Bankat");
                 });
 
             modelBuilder.Entity("Domain.Contact", b =>
@@ -127,7 +127,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts", (string)null);
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("Domain.Embelsira", b =>
@@ -149,7 +149,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Embelsirat", (string)null);
+                    b.ToTable("Embelsirat");
                 });
 
             modelBuilder.Entity("Domain.Gjinia", b =>
@@ -164,7 +164,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("GjiniaId");
 
-                    b.ToTable("Gjinite", (string)null);
+                    b.ToTable("Gjinite");
                 });
 
             modelBuilder.Entity("Domain.Pije", b =>
@@ -186,7 +186,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pijet", (string)null);
+                    b.ToTable("Pijet");
                 });
 
             modelBuilder.Entity("Domain.Qyteti", b =>
@@ -206,7 +206,34 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ShtetiId");
 
-                    b.ToTable("Qytetet", (string)null);
+                    b.ToTable("Qytetet");
+                });
+
+            modelBuilder.Entity("Domain.Rezervimi", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Mesazhi")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NrPersonave")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Rezervimet");
                 });
 
             modelBuilder.Entity("Domain.Shteti", b =>
@@ -225,7 +252,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("ShtetiId");
 
-                    b.ToTable("Shtetet", (string)null);
+                    b.ToTable("Shtetet");
                 });
 
             modelBuilder.Entity("Domain.Stafi", b =>
@@ -275,7 +302,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ShtetiId");
 
-                    b.ToTable("Stafis", (string)null);
+                    b.ToTable("Stafis");
                 });
 
             modelBuilder.Entity("Domain.Ushqimi", b =>
@@ -297,7 +324,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ushqimet", (string)null);
+                    b.ToTable("Ushqimet");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -439,6 +466,17 @@ namespace Persistence.Migrations
                     b.Navigation("Shteti");
                 });
 
+            modelBuilder.Entity("Domain.Rezervimi", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany("Rezervimet")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Domain.Stafi", b =>
                 {
                     b.HasOne("Domain.Banka", "Banka")
@@ -523,6 +561,11 @@ namespace Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.AppUser", b =>
+                {
+                    b.Navigation("Rezervimet");
                 });
 
             modelBuilder.Entity("Domain.Shteti", b =>

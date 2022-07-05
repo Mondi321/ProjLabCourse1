@@ -1,0 +1,99 @@
+.rezervimiForm{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.rezervimi-foto{
+    width: 40%;
+    height: 100vh;
+}
+
+.rezervimi-foto img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.rezervimiForm-permbajtja{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rezervimiForm h1{
+    text-align: center;
+    color: #ffb03b;
+    margin-bottom: 20px;
+}
+
+.rezervimiForm-Formik{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    position: relative;
+}
+
+.rezervimiForm-Formik .rezervimi-input1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.rezervimiForm-Formik .text-input{
+    width: 250px;
+    height: 95px;
+} 
+
+.rezervimiForm-Formik .text-area{
+    width: 520px;
+    height: 180px;
+    outline: none;
+}
+
+.rezervimiForm-Formik .text-area textarea{
+    height: 140px;
+    border: 3px solid #dc8d17;
+    border-radius: 20px;
+}
+
+.rezervimiForm-Formik .text-input input{
+    height: 50px;
+    border: 3px solid #dc8d17;
+    border-radius: 20px;
+}
+
+.rezervimiForm-Formik .button{
+    align-self: flex-end;
+    position: relative;
+}
+
+.rezervimiForm .button{
+    padding: 10px 20px;
+    background-color: #ffb03b;
+    border-radius: 30px;
+}
+
+.rezervimiForm .button:hover{
+    background-color: #ae7929;
+}
+
+.rezervimiForm-Formik .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: flex-end;
+    gap: 20px;
+}

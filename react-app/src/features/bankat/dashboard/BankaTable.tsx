@@ -25,7 +25,7 @@ export default observer(function BankaTable() {
             </thead>
             <tbody style={{ background: 'white' }}>
                 {bankat.map(banka => (
-                    <tr key={banka.bankaId}>
+                    <tr key={banka.emri}>
                         <td>{banka.emri}</td>
                         <td>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>

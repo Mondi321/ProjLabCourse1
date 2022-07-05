@@ -1,4 +1,5 @@
 ﻿using Application.Qytetet;
+using Application.Rezervimet;
 using Application.Stafis;
 using AutoMapper;
 using Domain;
@@ -22,6 +23,12 @@ namespace Application.Core
             CreateMap<Shteti, Shteti>();
             CreateMap<Qyteti, QytetiDto>();
             CreateMap<Banka, Banka>();
+            CreateMap<Rezervimi, Rezervimi>();
+            CreateMap<Rezervimi, RezervimiDto>()
+                .ForMember(d => d.User, o => o.MapFrom(s => s.AppUser));
+            CreateMap<AppUser, Profiles.Profile>()
+                .ForMember(d => d.DisplayName, o => o.MapFrom(s => s.DisplayName))
+                .ForMember(d => d.Username, o => o.MapFrom(s => s.UserName));
         }
     }
 }

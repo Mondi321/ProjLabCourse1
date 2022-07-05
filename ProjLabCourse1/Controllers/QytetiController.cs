@@ -14,10 +14,16 @@ namespace ProjLabCourse1.Controllers
             return HandleResult(await Mediator.Send(new List.Query()));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("qytetiid/{id}")]
         public async Task<IActionResult> GetQyteti(int id)
         {
             return HandleResult(await Mediator.Send(new Details.Query { Id = id }));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetQytetetByShteti(int id)
+        {
+            return HandleResult(await Mediator.Send(new ListByShteti.Query { Id = id }));
         }
 
         [HttpPost]

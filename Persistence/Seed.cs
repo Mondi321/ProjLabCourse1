@@ -129,7 +129,23 @@ namespace Persistence
                 await context.Contacts.AddRangeAsync(contacts);
             }
 
-            
+            if (!context.Rezervimet.Any())
+            {
+                var rezervimet = new List<Rezervimi>
+                {
+                    new Rezervimi
+                    {
+                        Data = DateTime.Now,
+                        Mesazhi = "Mesazhi 123",
+                        NrPersonave = 5,
+                        AppUserId = "c4e13b11-5b39-47e3-b166-8c0f12ee6965"
+
+                    }
+                };
+                await context.Rezervimet.AddRangeAsync(rezervimet);
+            }
+
+
             await context.SaveChangesAsync();
         }
     }

@@ -1,8 +1,11 @@
-﻿using Domain;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Persistence;
 using ProjLabCourse1.DTOs;
 using ProjLabCourse1.Services;
 using System.Security.Claims;
@@ -17,12 +20,16 @@ namespace ProjLabCourse1.Controllers
         private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
         private readonly TokenService tokenService;
+        private readonly IMapper mapper;
+        private readonly DataContext context;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, TokenService tokenService)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, TokenService tokenService, IMapper mapper, DataContext context)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.tokenService = tokenService;
+            this.mapper = mapper;
+            this.context = context;
         }
 
         [HttpPost("login")]
@@ -75,11 +82,15 @@ namespace ProjLabCourse1.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<UserDto>> GetCurrentUser()
+        public async Task<ActionResult<GetUserDto>> GetCurrentUser()
         {
             var user = await this.userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
 
-            return CreateUserObject(user);
+            var userR = await this.context.Users.ProjectTo<GetUserDto>(this.mapper.ConfigurationProvider)
+                .FirstOrDefaultAsync(x => x.Id == user.Id);
+            userR.Token = this.tokenService.CreateToken(user);
+
+            return userR;
         }
 
         private UserDto CreateUserObject(AppUser user)

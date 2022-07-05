@@ -24,5 +24,6 @@ namespace Persistence
         public DbSet<Qyteti> Qytetet { get; set; }
         public DbSet<Gjinia> Gjinite { get; set; }
         public DbSet<Banka> Bankat { get; set; }
+        public DbSet<Rezervimi> Rezervimet { get; set; }
     }
 }

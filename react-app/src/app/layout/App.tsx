@@ -35,6 +35,12 @@ import GjiniaDashboard from '../../features/gjinite/dashboard/GjiniaDashboard';
 import GjiniaForm from '../../features/gjinite/form/GjiniaForm';
 import BankaDashboard from '../../features/bankat/dashboard/BankaDashboard';
 import BankaForm from '../../features/bankat/form/BankaForm';
+import StafiDashboard from '../../features/stafi/dashboard/StafiDashboard';
+import StafiForm from '../../features/stafi/form/StafiForm';
+import RezervimiDashboard from '../../features/rezervimet/dashboard/RezervimiDashboard';
+import RezervimiForm from '../../features/rezervimet/form/RezervimiForm';
+import Rezervimet from '../../features/rezervimet/Rezervimet';
+import RezervimetInfo from '../../features/rezervimet/RezervimetInfo';
 
 
 //protected route
@@ -82,6 +88,13 @@ function App() {
 
         <Route
           path='/about' component={ComponentThree}
+        />
+
+        <Route
+          path='/rezervimiForm' component={Rezervimet}
+        />
+        <Route
+          path='/reservations' component={RezervimetInfo}
         />
 
         <Route
@@ -188,6 +201,32 @@ function App() {
               <Container>
                 <Route exact path='/bankat' component={BankaDashboard} />
                 <Route key={location.key} path={['/createBanka', '/manageBanka/:id']} component={BankaForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(stafi|manageStafi|createStafi)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/stafi' component={StafiDashboard} />
+                <Route key={location.key} path={['/createStafi', '/manageStafi/:id']} component={StafiForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(rezervimet|manageRezervimi|createRezervimi)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/rezervimet' component={RezervimiDashboard} />
+                <Route key={location.key} path={['/createRezervimi', '/manageRezervimi/:id']} component={RezervimiForm} />
               </Container>
             </>
           )}

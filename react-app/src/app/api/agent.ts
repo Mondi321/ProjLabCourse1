@@ -10,7 +10,9 @@ import { Qyteti } from "../models/qyteti";
 import { Shteti } from "../models/shteti";
 import { User, UserFormValues } from "../models/user";
 import { Ushqimi } from "../models/ushqimi";
+import { Stafi } from "../models/stafi";
 import { store } from "../stores/store";
+import { Rezervimi } from "../models/rezervimi";
 
 const sleep =(delay: number) => {
     return new Promise(resolve => {
@@ -124,7 +126,8 @@ const Shtetet = {
 
 const Qytetet = {
     list: () => requests.get<Qyteti[]>('/qyteti'),
-    details: (id: number) => requests.get<Qyteti>(`/qyteti/${id}`),
+    details: (id: number) => requests.get<Qyteti>(`/qyteti/qytetiid/${id}`),
+    listByShteti: (id: string) => requests.get<Qyteti[]>(`/qyteti/${id}`),
     create: (qyteti: Qyteti) => requests.post<void>('/qyteti', qyteti),
     update: (qyteti: Qyteti) => requests.put<void>(`/qyteti/${qyteti.qytetiId}`, qyteti),
     delete: (id: number) => requests.delete<void>(`/qyteti/${id}`)
@@ -146,6 +149,22 @@ const Bankat = {
     delete: (id: number) => requests.delete<void>(`/banka/${id}`)
 }
 
+const Stafis = {
+    list: () => requests.get<Stafi[]>('/stafi'),
+    details: (id: number) => requests.get<Stafi>(`/stafi/${id}`),
+    create: (stafi: Stafi) => requests.post<void>('/stafi', stafi),
+    update: (stafi: Stafi) => requests.put<void>(`/stafi/${stafi.stafiId}`, stafi),
+    delete: (id: number) => requests.delete<void>(`/stafi/${id}`)
+}
+
+const Rezervimet = {
+    list: () => requests.get<Rezervimi[]>('/rezervimi'),
+    details: (id: string) => requests.get<Rezervimi>(`/rezervimi/${id}`),
+    create: (rezervimi: Rezervimi) => requests.post<void>('/rezervimi', rezervimi),
+    update: (rezervimi: Rezervimi) => requests.put<void>(`/rezervimi/${rezervimi.id}`, rezervimi),
+    delete: (id: string) => requests.delete<void>(`/rezervimi/${id}`)
+}
+
 const agent ={
     Ushqimet,
     Account,
@@ -155,7 +174,9 @@ const agent ={
     Shtetet,
     Qytetet,
     Gjinite,
-    Bankat
+    Bankat,
+    Stafis,
+    Rezervimet
 }
 
 export default agent;

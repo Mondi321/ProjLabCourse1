@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './homeNavbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { Image, NavDropdown } from 'react-bootstrap';
+import { Button, Image, NavDropdown } from 'react-bootstrap';
 import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
 
@@ -75,6 +75,17 @@ export default observer(function HomeNavbar() {
                                 Contact Us
                             </NavLink>
                         </li>
+                        <li>
+                            <Link 
+                                to='rezervimiForm'
+                            >
+                                <Button
+                                    variant='warning'
+                                >
+                                    Reservation
+                                </Button>
+                            </Link>
+                        </li>
                     </ul>
                     <div className='image-information'>
                         <Image style={{ height: '40px', width: '40px'}} roundedCircle src={user?.image || '/assets/user.png'} />
@@ -84,6 +95,7 @@ export default observer(function HomeNavbar() {
                             menuVariant="dark"
                         >
                             <NavDropdown.Item href='/ushqimet'>Dashboard</NavDropdown.Item>
+                            <NavDropdown.Item href='/reservations'>Reservations</NavDropdown.Item>
                             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                         </NavDropdown>
                     </div>

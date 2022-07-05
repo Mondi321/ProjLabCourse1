@@ -25,7 +25,7 @@ export default observer(function GjiniaTable() {
             </thead>
             <tbody style={{ background: 'white' }}>
                 {gjinite.map(gjinia => (
-                    <tr key={gjinia.gjiniaId}>
+                    <tr key={gjinia.gjiniaE}>
                         <td>{gjinia.gjiniaE}</td>
                         <td>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
