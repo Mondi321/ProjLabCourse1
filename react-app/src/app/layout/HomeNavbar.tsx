@@ -96,6 +96,7 @@ export default observer(function HomeNavbar() {
                         >
                             <NavDropdown.Item href='/ushqimet'>Dashboard</NavDropdown.Item>
                             <NavDropdown.Item href='/reservations'>Reservations</NavDropdown.Item>
+                            <NavDropdown.Divider style={{background: 'white'}} />
                             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                         </NavDropdown>
                     </div>

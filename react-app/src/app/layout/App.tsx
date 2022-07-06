@@ -41,6 +41,9 @@ import RezervimiDashboard from '../../features/rezervimet/dashboard/RezervimiDas
 import RezervimiForm from '../../features/rezervimet/form/RezervimiForm';
 import Rezervimet from '../../features/rezervimet/Rezervimet';
 import RezervimetInfo from '../../features/rezervimet/RezervimetInfo';
+import EventiDashboard from '../../features/eventet/dashboard/EventiDashboard';
+import EventiDetail from '../../features/eventet/details/EventiDetail';
+import EventiForm from '../../features/eventet/form/EventiForm';
 
 
 //protected route
@@ -227,6 +230,20 @@ function App() {
               <Container>
                 <Route exact path='/rezervimet' component={RezervimiDashboard} />
                 <Route key={location.key} path={['/createRezervimi', '/manageRezervimi/:id']} component={RezervimiForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(eventet|createEventi|manageEventi)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/eventet' component={EventiDashboard} />
+                <Route path='/eventet/:id' component={EventiDetail} />
+                <Route key={location.key} path={['/createEventi', '/manageEventi/:id']} component={EventiForm} />
               </Container>
             </>
           )}

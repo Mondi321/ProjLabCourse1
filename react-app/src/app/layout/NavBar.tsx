@@ -49,6 +49,12 @@ export default function NavBar() {
                         <NavDropdown title="Rezervimet" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/rezervimet">Rezervimet</NavDropdown.Item>
                         </NavDropdown>
+                        <NavDropdown title="Eventet" id="navbarScrollingDropdown">
+                            <NavDropdown.Item href="/eventet">Eventet</NavDropdown.Item>
+                            <NavDropdown.Item href="/createEventi">
+                                Create Eventi
+                            </NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

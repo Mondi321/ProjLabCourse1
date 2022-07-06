@@ -13,6 +13,7 @@ import { Ushqimi } from "../models/ushqimi";
 import { Stafi } from "../models/stafi";
 import { store } from "../stores/store";
 import { Rezervimi } from "../models/rezervimi";
+import { Eventi } from "../models/eventi";
 
 const sleep =(delay: number) => {
     return new Promise(resolve => {
@@ -165,6 +166,14 @@ const Rezervimet = {
     delete: (id: string) => requests.delete<void>(`/rezervimi/${id}`)
 }
 
+const Eventet = {
+    list: () => requests.get<Eventi[]>('/eventi'),
+    details: (id: string) => requests.get<Eventi>(`/eventi/${id}`),
+    create: (eventi: Eventi) => requests.post<void>('/eventi', eventi),
+    update: (eventi: Eventi) => requests.put<void>(`/eventi/${eventi.id}`, eventi),
+    delete: (id: string) => requests.delete<void>(`/eventi/${id}`)
+}
+
 const agent ={
     Ushqimet,
     Account,
@@ -176,7 +185,8 @@ const agent ={
     Gjinite,
     Bankat,
     Stafis,
-    Rezervimet
+    Rezervimet,
+    Eventet
 }
 
 export default agent;

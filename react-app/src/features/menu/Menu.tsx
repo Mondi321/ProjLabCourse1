@@ -164,7 +164,7 @@ export default observer(function Menu() {
                     <div className='food'>
                         {dessertsClicked &&
                             embelsiratByCmimi.map(embelsira => (
-                                <div className='food-section'>
+                                <div key={embelsira.id} className='food-section'>
                                     <img src={`/assets/${embelsira.emri}.jpg`} alt="" />
                                     <div className='pershkrimi'>
                                         <div className='emri-cmimi'>

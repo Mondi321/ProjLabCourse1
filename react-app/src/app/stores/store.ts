@@ -11,6 +11,7 @@ import GjiniaStore from "./gjiniaStore";
 import BankaStore from "./bankaStore";
 import StafiStore from "./stafiStore";
 import RezervimiStore from "./rezervimiStore";
+import EventiStore from "./eventiStore";
 
 interface Store{
     ushqimiStore: UshqimiStore;
@@ -25,6 +26,7 @@ interface Store{
     bankaStore: BankaStore;
     stafiStore: StafiStore;
     rezervimiStore: RezervimiStore;
+    eventiStore: EventiStore;
 }
 
 export const store: Store ={
@@ -39,7 +41,8 @@ export const store: Store ={
     gjiniaStore: new GjiniaStore(),
     bankaStore: new BankaStore(),
     stafiStore: new StafiStore(),
-    rezervimiStore: new RezervimiStore()
+    rezervimiStore: new RezervimiStore(),
+    eventiStore: new EventiStore()
 }
 
 export const StoreContext = createContext(store);
