@@ -6,5 +6,7 @@ namespace Domain
     {
         public string DisplayName { get; set; } = string.Empty;
         public ICollection<Rezervimi> Rezervimet { get; set; } = new List<Rezervimi>();
+        public Photo? Photo { get; set; }
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
     }
 }

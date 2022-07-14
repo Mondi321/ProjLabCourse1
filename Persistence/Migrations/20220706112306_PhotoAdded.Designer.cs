@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
@@ -10,9 +11,10 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220706112306_PhotoAdded")]
+    partial class PhotoAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -253,30 +255,6 @@ namespace Persistence.Migrations
                     b.HasIndex("ShtetiId");
 
                     b.ToTable("Qytetet");
-                });
-
-            modelBuilder.Entity("Domain.Review", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Mesazhi")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("RatingValue")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Domain.Rezervimi", b =>
@@ -545,17 +523,6 @@ namespace Persistence.Migrations
                     b.Navigation("Shteti");
                 });
 
-            modelBuilder.Entity("Domain.Review", b =>
-                {
-                    b.HasOne("Domain.AppUser", "AppUser")
-                        .WithMany("Reviews")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("Domain.Rezervimi", b =>
                 {
                     b.HasOne("Domain.AppUser", "AppUser")
@@ -656,8 +623,6 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.Navigation("Photo");
-
-                    b.Navigation("Reviews");
 
                     b.Navigation("Rezervimet");
                 });

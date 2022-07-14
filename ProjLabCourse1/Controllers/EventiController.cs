@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ProjLabCourse1.Controllers
 {
-    [AllowAnonymous]
     public class EventiController : BaseApiController
     {
         [HttpGet]

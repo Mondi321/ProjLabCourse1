@@ -5,7 +5,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.swiper {
+.sectionFive .swiper {
   width: 80%;
   height: 80%;
   position: absolute;
@@ -13,7 +13,7 @@
   left: 10%;
 }
 
-.swiper-slide {
+.sectionFive .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: transparent;

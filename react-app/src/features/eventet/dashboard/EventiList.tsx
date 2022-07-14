@@ -6,11 +6,11 @@ import { useStore } from "../../../app/stores/store";
 export default observer(function EventiList() {
 
     const { eventiStore } = useStore();
-    const { eventetByCmimi, deleteEventi } = eventiStore;
+    const { eventet, deleteEventi } = eventiStore;
 
     return (
         <>
-            {eventetByCmimi.map(eventi => (
+            {eventet.map(eventi => (
                 <Card key={eventi.id} border='primary' style={{ width: '548px', margin: '5px' }}>
                     <Card.Body>
                         <Card.Title>

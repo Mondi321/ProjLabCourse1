@@ -12,9 +12,8 @@ export default class EventiStore{
         makeAutoObservable(this)
     }
 
-    get eventetByCmimi(){
-        return Array.from(this.eventiRegistry.values()).sort((a,b) => 
-        a.cmimi - b.cmimi);
+    get eventet(){
+        return Array.from(this.eventiRegistry.values());
     }
 
     loadEventet = async () => {

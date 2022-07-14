@@ -44,6 +44,9 @@ import RezervimetInfo from '../../features/rezervimet/RezervimetInfo';
 import EventiDashboard from '../../features/eventet/dashboard/EventiDashboard';
 import EventiDetail from '../../features/eventet/details/EventiDetail';
 import EventiForm from '../../features/eventet/form/EventiForm';
+import ChangePhoto from '../../features/users/ChangePhoto';
+import ReviewDashboard from '../../features/reviews/dashboard/ReviewDashboard';
+import ReviewForm from '../../features/reviews/form/ReviewForm';
 
 
 //protected route
@@ -99,6 +102,11 @@ function App() {
         <Route
           path='/reservations' component={RezervimetInfo}
         />
+
+        <Route
+          path='/changePhoto' component={ChangePhoto}
+        />
+
 
         <Route
           path={'/(ushqimet|createUshqimi|manage|errors|server-error)'}
@@ -244,6 +252,19 @@ function App() {
                 <Route exact path='/eventet' component={EventiDashboard} />
                 <Route path='/eventet/:id' component={EventiDetail} />
                 <Route key={location.key} path={['/createEventi', '/manageEventi/:id']} component={EventiForm} />
+              </Container>
+            </>
+          )}
+        />
+
+        <Route
+          path={'/(reviews|manageReview|createReview)'}
+          render={() => (
+            <>
+              <NavBar />
+              <Container>
+                <Route exact path='/reviews' component={ReviewDashboard} />
+                <Route key={location.key} path={['/createReview', '/manageReview/:id']} component={ReviewForm} />
               </Container>
             </>
           )}

@@ -5,9 +5,12 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { Button, Image, NavDropdown } from 'react-bootstrap';
 import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
+import ReviewModal from '../../features/reviews/ReviewModal';
 
 export default observer(function HomeNavbar() {
     const { userStore: { user, logout } } = useStore();
+
+    const [modalShow, setModalShow] = useState(false);
 
     const [click, setClick] = useState(false);
 
@@ -76,7 +79,7 @@ export default observer(function HomeNavbar() {
                             </NavLink>
                         </li>
                         <li>
-                            <Link 
+                            <Link
                                 to='rezervimiForm'
                             >
                                 <Button
@@ -88,7 +91,7 @@ export default observer(function HomeNavbar() {
                         </li>
                     </ul>
                     <div className='image-information'>
-                        <Image style={{ height: '40px', width: '40px'}} roundedCircle src={user?.image || '/assets/user.png'} />
+                        <Image style={{ height: '40px', width: '40px' }} roundedCircle src={user?.image || '/assets/user.png'} />
                         <NavDropdown
                             id="nav-dropdown-dark-example"
                             title={user?.displayName}
@@ -96,7 +99,9 @@ export default observer(function HomeNavbar() {
                         >
                             <NavDropdown.Item href='/ushqimet'>Dashboard</NavDropdown.Item>
                             <NavDropdown.Item href='/reservations'>Reservations</NavDropdown.Item>
-                            <NavDropdown.Divider style={{background: 'white'}} />
+                            <NavDropdown.Item href='/changePhoto'>Change Photo</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => setModalShow(true)}>Write a Review</NavDropdown.Item>
+                            <NavDropdown.Divider style={{ background: 'white' }} />
                             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                         </NavDropdown>
                     </div>
@@ -105,6 +110,10 @@ export default observer(function HomeNavbar() {
                     </div>
                 </div>
             </nav>
+            <ReviewModal
+                modalShow={modalShow}
+                setModalShow={setModalShow}
+            />
         </>
     )
 })

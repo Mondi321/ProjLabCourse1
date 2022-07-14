@@ -55,6 +55,9 @@ export default function NavBar() {
                                 Create Eventi
                             </NavDropdown.Item>
                         </NavDropdown>
+                        <NavDropdown title="Reviews" id="navbarScrollingDropdown">
+                            <NavDropdown.Item href="/reviews">Reviews</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

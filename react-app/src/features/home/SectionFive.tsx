@@ -11,20 +11,21 @@ import "./sectionFive.css";
 // import required modules
 import { Navigation } from "swiper";
 import { useStore } from "../../app/stores/store";
+import { observer } from "mobx-react-lite";
 
-export default function SectionFive() {
+export default observer(function SectionFive() {
     const { eventiStore } = useStore();
-    const { eventetByCmimi, loadEventet } = eventiStore;
+    const { eventiRegistry ,eventet, loadEventet } = eventiStore;
 
     useEffect(() => {
-        loadEventet();
-    }, [loadEventet])
+        if (eventiRegistry.size <= 1) loadEventet();
+    }, [ eventiRegistry.size, loadEventet])
     return (
         <>
             <div className="sectionFive">
                 <h1>Organize Your Events In Our Restaurant</h1>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                    {eventetByCmimi.map(eventi => (
+                    {eventet.map(eventi => (
                         <SwiperSlide key={eventi.id}>
                             <div className="permbajtjaFive">
                                 <img src="/assets/event-birthday.jpg" alt="" />
@@ -36,7 +37,8 @@ export default function SectionFive() {
                             </div>
                         </SwiperSlide>
                     ))}
-                    {/* <SwiperSlide>
+                </Swiper>
+                {/* <SwiperSlide>
                         <div className="permbajtjaFive">
                             <img src="/assets/event-birthday.jpg" alt="" />
                             <div className="pershkrimiFive">
@@ -66,8 +68,7 @@ export default function SectionFive() {
                             </div>
                         </div>
                     </SwiperSlide> */}
-                </Swiper>
             </div>
         </>
     );
-}
+})

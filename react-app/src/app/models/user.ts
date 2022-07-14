@@ -1,3 +1,4 @@
+import { Review } from "./review";
 import { Rezervimi } from "./rezervimi";
 
 export interface User {
@@ -7,6 +8,8 @@ export interface User {
     token: string;
     image?: string;
     rezervimet?: Rezervimi[];
+    photo?: Photo;
+    reviews?: Review[];
 }
 
 export interface UserFormValues{
@@ -14,4 +17,10 @@ export interface UserFormValues{
     password: string;
     displayName?: string;
     username?:string;
+}
+
+export interface Photo{
+    id: string;
+    url: string;
+    appUserId?: string;
 }

@@ -8,12 +8,13 @@ import { Gjinia } from "../models/gjinia";
 import { Pije } from "../models/pije";
 import { Qyteti } from "../models/qyteti";
 import { Shteti } from "../models/shteti";
-import { User, UserFormValues } from "../models/user";
+import { Photo, User, UserFormValues } from "../models/user";
 import { Ushqimi } from "../models/ushqimi";
 import { Stafi } from "../models/stafi";
 import { store } from "../stores/store";
 import { Rezervimi } from "../models/rezervimi";
 import { Eventi } from "../models/eventi";
+import { Review } from "../models/review";
 
 const sleep =(delay: number) => {
     return new Promise(resolve => {
@@ -174,6 +175,26 @@ const Eventet = {
     delete: (id: string) => requests.delete<void>(`/eventi/${id}`)
 }
 
+const Photos = {
+    upload: (file: Blob) => {
+        let formData = new FormData();
+        formData.append('File', file);
+        return axios.post<Photo>('photo', formData, {
+            headers: {'Content-type': 'multipart/form-data'}
+        })
+    },
+    delete: () => requests.delete('/photo')
+}
+
+const Reviews = {
+    list: () => requests.get<Review[]>('/review'),
+    details: (id: string) => requests.get<Review>(`/review/${id}`),
+    create: (review: Review) => requests.post<void>('/review', review),
+    update: (review: Review) => requests.put<void>(`/review/${review.id}`, review),
+    delete: (id: string) => requests.delete<void>(`/review/${id}`)
+}
+
+
 const agent ={
     Ushqimet,
     Account,
@@ -186,7 +207,9 @@ const agent ={
     Bankat,
     Stafis,
     Rezervimet,
-    Eventet
+    Eventet,
+    Photos,
+    Reviews
 }
 
 export default agent;
