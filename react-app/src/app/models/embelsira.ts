@@ -3,4 +3,6 @@ export interface Embelsira{
     emri: string;
     perberesit: string;
     cmimi: number;
+    image?: string;
+    type?: 'Embelsira';
 }

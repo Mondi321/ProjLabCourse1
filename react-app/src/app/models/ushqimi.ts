@@ -3,4 +3,6 @@ export interface Ushqimi {
     emri: string;
     perberesit: string;
     cmimi: number;
+    image?: string ;
+    type?: 'Ushqimi';
 }

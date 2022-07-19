@@ -36,7 +36,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(opt =>
 {
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddCors(opt =>
 {
@@ -48,7 +48,7 @@ builder.Services.AddCors(opt =>
 builder.Services.AddMediatR(typeof(List.Handler).Assembly);
 builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 builder.Services.AddAutoMapper(typeof(MappingUser).Assembly);
-builder.Services.AddIdentityCore<AppUser>(opt =>
+builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {
     opt.Password.RequireNonAlphanumeric = false;
 })
@@ -57,7 +57,11 @@ builder.Services.AddIdentityCore<AppUser>(opt =>
 
 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["TokenKey"]));
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+builder.Services.AddAuthentication(options => {
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
     .AddJwtBearer(opt =>
     {
         opt.TokenValidationParameters = new TokenValidationParameters
@@ -104,6 +108,9 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseCors("CorsPolicy");
 

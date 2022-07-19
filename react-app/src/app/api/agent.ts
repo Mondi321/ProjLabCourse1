@@ -15,6 +15,7 @@ import { store } from "../stores/store";
 import { Rezervimi } from "../models/rezervimi";
 import { Eventi } from "../models/eventi";
 import { Review } from "../models/review";
+import { Porosia } from "../models/porosia";
 
 const sleep =(delay: number) => {
     return new Promise(resolve => {
@@ -22,7 +23,7 @@ const sleep =(delay: number) => {
     })
 }
 
-axios.defaults.baseURL = 'http://localhost:5148/api';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.request.use(config => {
     const token = store.commonStore.token;
@@ -35,7 +36,7 @@ axios.interceptors.request.use(config => {
 })
 
 axios.interceptors.response.use(async response => {
-        await sleep(1000);
+        if(process.env.NODE_ENV === 'development') await sleep(1000);
         return response;
 }, (error: AxiosError) => {
     const {status, data, config}:any = error.response!;
@@ -194,6 +195,14 @@ const Reviews = {
     delete: (id: string) => requests.delete<void>(`/review/${id}`)
 }
 
+const Porosite = {
+    list: () => requests.get<Porosia[]>('/porosia'),
+    details: (id: string) => requests.get<Porosia>(`/porosia/${id}`),
+    create: (porosia: Porosia) => requests.post<void>('/porosia', porosia),
+    update: (porosia: Porosia) => requests.put<void>(`/porosia/${porosia.id}`, porosia),
+    delete: (id: string) => requests.delete<void>(`/porosia/${id}`)
+}
+
 
 const agent ={
     Ushqimet,
@@ -209,7 +218,8 @@ const agent ={
     Rezervimet,
     Eventet,
     Photos,
-    Reviews
+    Reviews,
+    Porosite
 }
 
 export default agent;

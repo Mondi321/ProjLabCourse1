@@ -17,6 +17,10 @@ namespace ProjLabCourse1.Mapping
             CreateMap<Review, Profiles.ReviewProfile>()
                 .ForMember(d => d.Mesazhi, o => o.MapFrom(s => s.Mesazhi))
                 .ForMember(d => d.RatingValue, o => o.MapFrom(s => s.RatingValue));
+            CreateMap<Porosia, Profiles.PorosiaProfile>()
+                .ForMember(d => d.NumriPorosise, o => o.MapFrom(s => s.NumriPorosise))
+                .ForMember(d => d.MetodaPageses, o => o.MapFrom(s => s.MetodaPageses))
+                .ForMember(d => d.Totali, o => o.MapFrom(s => s.Totali));
         }
     }
 }

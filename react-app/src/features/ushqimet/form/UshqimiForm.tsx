@@ -25,6 +25,7 @@ export default observer(function UshqimiForm() {
         cmimi: 0
     });
 
+
     const validationSchema = Yup.object({
         emri: Yup.string().required('Emri eshte i zbrazet!'),
         perberesit: Yup.string().required('Perberesi eshte i zbrazet!'),
@@ -58,11 +59,17 @@ export default observer(function UshqimiForm() {
                     enableReinitialize
                     initialValues={ushqimi}
                     onSubmit={(values) => handleFormSubmit(values)}>
-                    {({ handleSubmit, isValid, isSubmitting, dirty }) => (
+                    {({ handleSubmit, isValid, isSubmitting, dirty, handleChange }) => (
                         <Form onSubmit={handleSubmit} autoComplete='off' className='m-2'>
                             <MyTextInput name='emri' placeholder='Emri' />
                             <MyTextArea name='perberesit' placeholder='Perberesit' />
                             <MyTextInput name='cmimi' placeholder='Cmimi' />
+{/*                             
+                            <Field name='image' type='file' className='form-control' onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                                const image: string = e.target.value;
+                                setImage(image);
+                                handleChange(e);
+                            }} /> */}
 
                             <Button 
                                 className='float-end' 

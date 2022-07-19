@@ -1,0 +1,44 @@
+.porositeInfo{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.porositeInfoFoto{
+    width: 40%;
+    height: 100%;
+}
+
+.porositeInfoFoto img{
+    height: 100%;
+    width: 100%;
+}
+
+.porositeInfoPermbajtja{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.porositeInfoPermbajtjaTable{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.porositeInfoPermbajtjaTable .porositeInfoPermbajtjaButton{
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+
+.porositeInfoPermbajtjaTable a{
+    align-self: flex-end;
+}
