@@ -21,14 +21,12 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateBanka(Banka banka)
         {
             return HandleResult(await Mediator.Send(new Create.Command { Banka = banka}));
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditBanka(int id, Banka banka)
         {
             banka.BankaId = id;
@@ -36,7 +34,6 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteBanka(int id)
         {
             return HandleResult(await Mediator.Send(new Delete.Command { Id = id }));

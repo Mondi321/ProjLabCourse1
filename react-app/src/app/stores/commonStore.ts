@@ -5,7 +5,6 @@ export default class CommonStore{
     error: ServerError | null = null;
     token: string | null = window.localStorage.getItem('jwt');
     appLoaded = false;
-    modalShow = false;
 
     constructor(){
         makeAutoObservable(this);
@@ -32,8 +31,5 @@ export default class CommonStore{
 
     setAppLoaded = () => {
         this.appLoaded = true;
-    }
-    setModalShow = (show: boolean) => {
-        this.modalShow = show;
     }
 }

@@ -14,7 +14,7 @@ namespace Domain
         public string Detyra { get; set; } = string.Empty;
         public int ShtetiId { get; set; }
         public Shteti? Shteti { get; set; }
-        public int? QytetiId { get; set; }
+        public int QytetiId { get; set; }
         public Qyteti? Qyteti { get; set; }
         public int GjiniaId { get; set; }
         public Gjinia? Gjinia { get; set; }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Application.Reviews;
 using Domain;
-using Microsoft.AspNetCore.Authorization;
 
 namespace ProjLabCourse1.Controllers
 {

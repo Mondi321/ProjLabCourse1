@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
@@ -10,9 +11,10 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220619161655_ContactAdded")]
+    partial class ContactAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -85,21 +87,6 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Banka", b =>
-                {
-                    b.Property<int>("BankaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Emri")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("BankaId");
-
-                    b.ToTable("Bankat");
-                });
-
             modelBuilder.Entity("Domain.Contact", b =>
                 {
                     b.Property<Guid>("Id")
@@ -152,67 +139,6 @@ namespace Persistence.Migrations
                     b.ToTable("Embelsirat");
                 });
 
-            modelBuilder.Entity("Domain.Eventi", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Cmimi")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Pershkrimi")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Titulli")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Eventet");
-                });
-
-            modelBuilder.Entity("Domain.Gjinia", b =>
-                {
-                    b.Property<int>("GjiniaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("GjiniaE")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("GjiniaId");
-
-                    b.ToTable("Gjinite");
-                });
-
-            modelBuilder.Entity("Domain.Photo", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId")
-                        .IsUnique();
-
-                    b.ToTable("Photos");
-                });
-
             modelBuilder.Entity("Domain.Pije", b =>
                 {
                     b.Property<Guid>("Id")
@@ -233,146 +159,6 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pijet");
-                });
-
-            modelBuilder.Entity("Domain.Qyteti", b =>
-                {
-                    b.Property<int>("QytetiId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Emri")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ShtetiId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("QytetiId");
-
-                    b.HasIndex("ShtetiId");
-
-                    b.ToTable("Qytetet");
-                });
-
-            modelBuilder.Entity("Domain.Review", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Mesazhi")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("RatingValue")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.ToTable("Reviews");
-                });
-
-            modelBuilder.Entity("Domain.Rezervimi", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Data")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Mesazhi")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("NrPersonave")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.ToTable("Rezervimet");
-                });
-
-            modelBuilder.Entity("Domain.Shteti", b =>
-                {
-                    b.Property<int>("ShtetiId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Emri")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EmriPostal")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ShtetiId");
-
-                    b.ToTable("Shtetet");
-                });
-
-            modelBuilder.Entity("Domain.Stafi", b =>
-                {
-                    b.Property<int>("StafiId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Adresa")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("BankaId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("DataLindjes")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Detyra")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Emri")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("GjiniaId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Mbiemri")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("QytetiId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ShtetiId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("StafiId");
-
-                    b.HasIndex("BankaId");
-
-                    b.HasIndex("GjiniaId");
-
-                    b.HasIndex("QytetiId");
-
-                    b.HasIndex("ShtetiId");
-
-                    b.ToTable("Stafis");
                 });
 
             modelBuilder.Entity("Domain.Ushqimi", b =>
@@ -525,83 +311,6 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Photo", b =>
-                {
-                    b.HasOne("Domain.AppUser", "AppUser")
-                        .WithOne("Photo")
-                        .HasForeignKey("Domain.Photo", "AppUserId");
-
-                    b.Navigation("AppUser");
-                });
-
-            modelBuilder.Entity("Domain.Qyteti", b =>
-                {
-                    b.HasOne("Domain.Shteti", "Shteti")
-                        .WithMany("Qytetet")
-                        .HasForeignKey("ShtetiId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Shteti");
-                });
-
-            modelBuilder.Entity("Domain.Review", b =>
-                {
-                    b.HasOne("Domain.AppUser", "AppUser")
-                        .WithMany("Reviews")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
-            modelBuilder.Entity("Domain.Rezervimi", b =>
-                {
-                    b.HasOne("Domain.AppUser", "AppUser")
-                        .WithMany("Rezervimet")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
-            modelBuilder.Entity("Domain.Stafi", b =>
-                {
-                    b.HasOne("Domain.Banka", "Banka")
-                        .WithMany()
-                        .HasForeignKey("BankaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Gjinia", "Gjinia")
-                        .WithMany()
-                        .HasForeignKey("GjiniaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Qyteti", "Qyteti")
-                        .WithMany()
-                        .HasForeignKey("QytetiId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Shteti", "Shteti")
-                        .WithMany()
-                        .HasForeignKey("ShtetiId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Banka");
-
-                    b.Navigation("Gjinia");
-
-                    b.Navigation("Qyteti");
-
-                    b.Navigation("Shteti");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -651,20 +360,6 @@ namespace Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.AppUser", b =>
-                {
-                    b.Navigation("Photo");
-
-                    b.Navigation("Reviews");
-
-                    b.Navigation("Rezervimet");
-                });
-
-            modelBuilder.Entity("Domain.Shteti", b =>
-                {
-                    b.Navigation("Qytetet");
                 });
 #pragma warning restore 612, 618
         }

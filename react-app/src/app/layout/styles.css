@@ -469,13 +469,3 @@ code {
 }
 
 
-
-.artikulli-list-group :hover{
-  background-color: rgb(169, 168, 168);
-  cursor: pointer;
-}
-
-.deleteSelectedArtikull :hover{
-  cursor: pointer;
-  color: rgb(176, 176, 176);
-}

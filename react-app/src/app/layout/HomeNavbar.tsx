@@ -8,9 +8,9 @@ import { observer } from 'mobx-react-lite';
 import ReviewModal from '../../features/reviews/ReviewModal';
 
 export default observer(function HomeNavbar() {
-    const { userStore: { user, logout }, commonStore } = useStore();
+    const { userStore: { user, logout } } = useStore();
 
-    const {modalShow, setModalShow} = commonStore;
+    const [modalShow, setModalShow] = useState(false);
 
     const [click, setClick] = useState(false);
 
@@ -78,7 +78,7 @@ export default observer(function HomeNavbar() {
                                 Contact Us
                             </NavLink>
                         </li>
-                        <li style={{display: 'flex', flexDirection:'row', gap:'10px'}}>
+                        <li>
                             <Link
                                 to='rezervimiForm'
                             >
@@ -86,15 +86,6 @@ export default observer(function HomeNavbar() {
                                     variant='warning'
                                 >
                                     Reservation
-                                </Button>
-                            </Link>
-                            <Link
-                                to='porosia'
-                            >
-                                <Button
-                                    variant='warning'
-                                >
-                                    Order
                                 </Button>
                             </Link>
                         </li>
@@ -106,11 +97,8 @@ export default observer(function HomeNavbar() {
                             title={user?.displayName}
                             menuVariant="dark"
                         >
-                            {user?.roli.includes('Admin') && (
-                                <NavDropdown.Item href='/ushqimet'>Dashboard</NavDropdown.Item>
-                            )}
+                            <NavDropdown.Item href='/ushqimet'>Dashboard</NavDropdown.Item>
                             <NavDropdown.Item href='/reservations'>Reservations</NavDropdown.Item>
-                            <NavDropdown.Item href='/porosite'>Orders</NavDropdown.Item>
                             <NavDropdown.Item href='/changePhoto'>Change Photo</NavDropdown.Item>
                             <NavDropdown.Item onClick={() => setModalShow(true)}>Write a Review</NavDropdown.Item>
                             <NavDropdown.Divider style={{ background: 'white' }} />

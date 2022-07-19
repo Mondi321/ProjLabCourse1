@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import ValidationErrors from './ValidationErrors';
 
 export default function TestErrors() {
-    const baseUrl = process.env.REACT_APP_API_URL;
+    const baseUrl = 'http://localhost:5148/api/'
     const [errors, setErrors] = useState(null);
 
     function handleNotFound() {
