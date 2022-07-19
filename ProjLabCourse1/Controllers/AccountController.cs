@@ -44,7 +44,7 @@ namespace ProjLabCourse1.Controllers
 
             if (result.Succeeded)
             {
-                return CreateUserObject(user);
+                return await CreateUserObject(user);
             }
 
             return Unauthorized();
@@ -75,7 +75,8 @@ namespace ProjLabCourse1.Controllers
 
             if (result.Succeeded)
             {
-                return CreateUserObject(user);
+                await this.userManager.AddToRoleAsync(user, "AppUser");
+                return await CreateUserObject(user);
             }
 
             return BadRequest("Problem registering user");
@@ -90,19 +91,20 @@ namespace ProjLabCourse1.Controllers
             var userR = await this.context.Users.ProjectTo<GetUserDto>(this.mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync(x => x.Id == user.Id);
             userR.Token = this.tokenService.CreateToken(user);
-
+            userR.Roli = await this.userManager.GetRolesAsync(user);
             return userR;
         }
 
-        private UserDto CreateUserObject(AppUser user)
+        private async Task<UserDto> CreateUserObject(AppUser user)
         {
             return new UserDto
             {
                 DisplayName = user.DisplayName,
                 Image = user?.Photo?.Url,
                 Token = this.tokenService.CreateToken(user),
-                Username = user.UserName
-            };
+                Username = user.UserName,
+                Roli = await this.userManager.GetRolesAsync(user)
+        };
         }
     }
 }

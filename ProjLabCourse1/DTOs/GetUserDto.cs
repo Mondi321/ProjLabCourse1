@@ -12,6 +12,7 @@ namespace ProjLabCourse1.DTOs
         public string Image { get; set; }
         public ICollection<UserProfile> Rezervimet { get; set; }
         public ICollection<ReviewProfile> Reviews { get; set; }
-
+        public ICollection<PorosiaProfile> Porosite { get; set; }
+        public ICollection<string> Roli { get; set; }
     }
 }

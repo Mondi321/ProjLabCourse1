@@ -12,5 +12,6 @@ namespace Domain
         public string Emri { get; set; } = string.Empty;
         public string Perberesit { get; set; } = string.Empty;
         public Double Cmimi { get; set; }
+        public string Image { get; set; } = string.Empty;
     }
 }

@@ -14,6 +14,7 @@ import RezervimiStore from "./rezervimiStore";
 import EventiStore from "./eventiStore";
 import PhotoStore from "./photoStore";
 import ReviewStore from "./reviewStore";
+import PorosiaStore from "./porosiaStore";
 
 interface Store{
     ushqimiStore: UshqimiStore;
@@ -31,6 +32,7 @@ interface Store{
     eventiStore: EventiStore;
     photoStore: PhotoStore;
     reviewStore: ReviewStore;
+    porosiaStore: PorosiaStore;
 }
 
 export const store: Store ={
@@ -48,7 +50,8 @@ export const store: Store ={
     rezervimiStore: new RezervimiStore(),
     eventiStore: new EventiStore(),
     photoStore: new PhotoStore(),
-    reviewStore: new ReviewStore()
+    reviewStore: new ReviewStore(),
+    porosiaStore: new PorosiaStore()
 }
 
 export const StoreContext = createContext(store);

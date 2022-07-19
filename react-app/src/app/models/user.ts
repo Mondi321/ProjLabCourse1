@@ -1,3 +1,4 @@
+import { Porosia } from "./porosia";
 import { Review } from "./review";
 import { Rezervimi } from "./rezervimi";
 
@@ -10,6 +11,8 @@ export interface User {
     rezervimet?: Rezervimi[];
     photo?: Photo;
     reviews?: Review[];
+    roli: string[];
+    porosite?: Porosia[];
 }
 
 export interface UserFormValues{

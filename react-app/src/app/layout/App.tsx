@@ -47,6 +47,9 @@ import EventiForm from '../../features/eventet/form/EventiForm';
 import ChangePhoto from '../../features/users/ChangePhoto';
 import ReviewDashboard from '../../features/reviews/dashboard/ReviewDashboard';
 import ReviewForm from '../../features/reviews/form/ReviewForm';
+import Porosia from '../../features/porosite/Porosia';
+import PrivateRoute from './PrivateRoute';
+import Porosite from '../../features/porosite/Porosite';
 
 
 //protected route
@@ -107,6 +110,14 @@ function App() {
           path='/changePhoto' component={ChangePhoto}
         />
 
+        <Route
+          path='/porosia' component={Porosia}
+        />
+
+        <Route
+          path='/porosite' component={Porosite}
+        />
+
 
         <Route
           path={'/(ushqimet|createUshqimi|manage|errors|server-error)'}
@@ -114,9 +125,9 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/ushqimet' component={UshqimiDashboard} />
-                <Route path='/ushqimet/:id' component={UshqimiDetail} />
-                <Route key={location.key} path={['/createUshqimi', '/manage/:id']} component={UshqimiForm} />
+                <PrivateRoute exact path='/ushqimet' component={UshqimiDashboard} />
+                <PrivateRoute path='/ushqimet/:id' component={UshqimiDetail} />
+                <PrivateRoute key={location.key} path={['/createUshqimi', '/manage/:id']} component={UshqimiForm} />
                 <Route path='/errors' component={TestErrors} />
                 <Route path='/server-error' component={ServerError} />
               </Container>
@@ -130,9 +141,9 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/pijet' component={PijeDashboard} />
-                <Route path='/pijet/:id' component={PijeDetail} />
-                <Route key={location.key} path={['/createPije', '/managePije/:id']} component={PijeForm} />
+                <PrivateRoute exact path='/pijet' component={PijeDashboard} />
+                <PrivateRoute path='/pijet/:id' component={PijeDetail} />
+                <PrivateRoute key={location.key} path={['/createPije', '/managePije/:id']} component={PijeForm} />
               </Container>
             </>
           )}
@@ -144,9 +155,9 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/embelsirat' component={EmbelsiraDashboard} />
-                <Route path='/embelsirat/:id' component={EmbelsiraDetail} />
-                <Route key={location.key} path={['/createEmbelsira', '/manageEmbelsira/:id']} component={EmbelsiraForm} />
+                <PrivateRoute exact path='/embelsirat' component={EmbelsiraDashboard} />
+                <PrivateRoute path='/embelsirat/:id' component={EmbelsiraDetail} />
+                <PrivateRoute key={location.key} path={['/createEmbelsira', '/manageEmbelsira/:id']} component={EmbelsiraForm} />
               </Container>
             </>
           )}
@@ -158,8 +169,8 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/contacts' component={ContactDashboard} />
-                <Route path='/manageContact/:id' component={ContactFormEdit} />
+                <PrivateRoute exact path='/contacts' component={ContactDashboard} />
+                <PrivateRoute path='/manageContact/:id' component={ContactFormEdit} />
               </Container>
             </>
           )}
@@ -171,8 +182,8 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/shtetet' component={ShtetiDashboard} />
-                <Route key={location.key} path={['/createShteti', '/manageShteti/:id']} component={ShtetiForm} />
+                <PrivateRoute exact path='/shtetet' component={ShtetiDashboard} />
+                <PrivateRoute key={location.key} path={['/createShteti', '/manageShteti/:id']} component={ShtetiForm} />
               </Container>
             </>
           )}
@@ -184,8 +195,8 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/qytetet' component={QytetiDashboard} />
-                <Route key={location.key} path={['/createQyteti', '/manageQyteti/:id']} component={QytetiForm} />
+                <PrivateRoute exact path='/qytetet' component={QytetiDashboard} />
+                <PrivateRoute key={location.key} path={['/createQyteti', '/manageQyteti/:id']} component={QytetiForm} />
               </Container>
             </>
           )}
@@ -197,8 +208,8 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/gjinite' component={GjiniaDashboard} />
-                <Route key={location.key} path={['/createGjinia', '/manageGjinia/:id']} component={GjiniaForm} />
+                <PrivateRoute exact path='/gjinite' component={GjiniaDashboard} />
+                <PrivateRoute key={location.key} path={['/createGjinia', '/manageGjinia/:id']} component={GjiniaForm} />
               </Container>
             </>
           )}
@@ -210,8 +221,8 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/bankat' component={BankaDashboard} />
-                <Route key={location.key} path={['/createBanka', '/manageBanka/:id']} component={BankaForm} />
+                <PrivateRoute exact path='/bankat' component={BankaDashboard} />
+                <PrivateRoute key={location.key} path={['/createBanka', '/manageBanka/:id']} component={BankaForm} />
               </Container>
             </>
           )}
@@ -223,8 +234,8 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/stafi' component={StafiDashboard} />
-                <Route key={location.key} path={['/createStafi', '/manageStafi/:id']} component={StafiForm} />
+                <PrivateRoute exact path='/stafi' component={StafiDashboard} />
+                <PrivateRoute key={location.key} path={['/createStafi', '/manageStafi/:id']} component={StafiForm} />
               </Container>
             </>
           )}
@@ -236,8 +247,8 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/rezervimet' component={RezervimiDashboard} />
-                <Route key={location.key} path={['/createRezervimi', '/manageRezervimi/:id']} component={RezervimiForm} />
+                <PrivateRoute exact path='/rezervimet' component={RezervimiDashboard} />
+                <PrivateRoute key={location.key} path={['/createRezervimi', '/manageRezervimi/:id']} component={RezervimiForm} />
               </Container>
             </>
           )}
@@ -249,9 +260,9 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/eventet' component={EventiDashboard} />
-                <Route path='/eventet/:id' component={EventiDetail} />
-                <Route key={location.key} path={['/createEventi', '/manageEventi/:id']} component={EventiForm} />
+                <PrivateRoute exact path='/eventet' component={EventiDashboard} />
+                <PrivateRoute path='/eventet/:id' component={EventiDetail} />
+                <PrivateRoute key={location.key} path={['/createEventi', '/manageEventi/:id']} component={EventiForm} />
               </Container>
             </>
           )}
@@ -263,8 +274,8 @@ function App() {
             <>
               <NavBar />
               <Container>
-                <Route exact path='/reviews' component={ReviewDashboard} />
-                <Route key={location.key} path={['/createReview', '/manageReview/:id']} component={ReviewForm} />
+                <PrivateRoute exact path='/reviews' component={ReviewDashboard} />
+                <PrivateRoute key={location.key} path={['/createReview', '/manageReview/:id']} component={ReviewForm} />
               </Container>
             </>
           )}

@@ -28,5 +28,7 @@ namespace Persistence
         public DbSet<Eventi> Eventet{ get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Porosia> Porosite  { get; set; }
+        public DbSet<PorosiaDetail> PorosiaDetails{ get; set; }
     }
 }

@@ -3,4 +3,6 @@ export interface Pije{
     emri: string;
     perberesit: string;
     cmimi: number;
+    image?: string;
+    type?: 'Pije';
 }

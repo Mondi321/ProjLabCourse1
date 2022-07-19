@@ -1,4 +1,5 @@
 ﻿using Application.Photos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProjLabCourse1.Controllers

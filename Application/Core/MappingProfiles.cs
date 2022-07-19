@@ -1,4 +1,5 @@
-﻿using Application.Qytetet;
+﻿using Application.Porosite;
+using Application.Qytetet;
 using Application.Reviews;
 using Application.Rezervimet;
 using Application.Stafis;
@@ -33,6 +34,8 @@ namespace Application.Core
                 .ForMember(d => d.Image, o => o.MapFrom(s => s.Photo.Url));
             CreateMap<Eventi, Eventi>();
             CreateMap<Review, ReviewDto>()
+                .ForMember(d => d.User, o => o.MapFrom(s => s.AppUser));
+            CreateMap<Porosia, PorosiaDto>()
                 .ForMember(d => d.User, o => o.MapFrom(s => s.AppUser));
         }
     }
