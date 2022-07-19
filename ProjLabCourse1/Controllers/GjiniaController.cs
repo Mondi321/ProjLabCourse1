@@ -20,12 +20,14 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> CreateGjinia(Gjinia gjinia)
         {
             return HandleResult(await Mediator.Send(new Create.Command { Gjinia = gjinia}));
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> EditGjinia(int id, Gjinia gjinia)
         {
             gjinia.GjiniaId = id;
@@ -33,6 +35,7 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> DeleteGjinia(int id)
         {
             return HandleResult(await Mediator.Send(new Delete.Command { Id = id}));

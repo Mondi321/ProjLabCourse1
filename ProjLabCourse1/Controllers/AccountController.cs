@@ -90,10 +90,11 @@ namespace ProjLabCourse1.Controllers
 
             var userR = await this.context.Users.ProjectTo<GetUserDto>(this.mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync(x => x.Id == user.Id);
-            userR.Token = this.tokenService.CreateToken(user);
+            userR.Token = await this.tokenService.CreateToken(user);
             userR.Roli = await this.userManager.GetRolesAsync(user);
             return userR;
         }
+
 
         private async Task<UserDto> CreateUserObject(AppUser user)
         {
@@ -101,7 +102,7 @@ namespace ProjLabCourse1.Controllers
             {
                 DisplayName = user.DisplayName,
                 Image = user?.Photo?.Url,
-                Token = this.tokenService.CreateToken(user),
+                Token = await this.tokenService.CreateToken(user),
                 Username = user.UserName,
                 Roli = await this.userManager.GetRolesAsync(user)
         };

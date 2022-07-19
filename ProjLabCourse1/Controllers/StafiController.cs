@@ -20,12 +20,14 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> CreateStafi(Stafi stafi)
         {
             return HandleResult(await Mediator.Send(new Create.Command { Stafi = stafi }));
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> UpdateStafi(int id, Stafi stafi)
         {
             stafi.StafiId = id;
@@ -33,6 +35,7 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> DeleteStafi(int id)
         {
             return HandleResult(await Mediator.Send(new Delete.Command { Id = id }));

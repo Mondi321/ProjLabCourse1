@@ -26,6 +26,7 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> EditPorosia(Guid id, Porosia porosia)
         {
             porosia.Id = id;
@@ -33,6 +34,7 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> DeletePorosia(Guid id)
         {
             return HandleResult(await Mediator.Send(new Delete.Command { Id = id }));

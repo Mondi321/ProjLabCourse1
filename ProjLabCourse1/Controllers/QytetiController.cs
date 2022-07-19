@@ -26,12 +26,14 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> CreateQyteti(Qyteti qyteti)
         {
             return HandleResult(await Mediator.Send(new Create.Command { Qyteti = qyteti}));
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> UpdateQyteti(int id, Qyteti qyteti)
         {
             qyteti.QytetiId = id;
@@ -39,6 +41,7 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> DeleteQyteti(int id)
         {
             return HandleResult(await Mediator.Send(new Delete.Command { Id = id }));

@@ -28,9 +28,7 @@ axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.interceptors.request.use(config => {
     const token = store.commonStore.token;
     if (token) {
-        if(config.headers){
-            config.headers.Authorization = `Bearer ${token}`;
-        }
+        config!.headers!.Authorization = `Bearer ${token}`;
     }
     return config;
 })

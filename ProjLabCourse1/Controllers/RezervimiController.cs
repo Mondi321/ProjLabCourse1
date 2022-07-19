@@ -26,6 +26,7 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> EditRezervimi(Guid id, Rezervimi rezervimi)
         {
             rezervimi.Id = id;
@@ -33,6 +34,7 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> DeleteRezervimi(Guid id)
         {
             return HandleResult(await Mediator.Send(new Delete.Command { Id = id }));

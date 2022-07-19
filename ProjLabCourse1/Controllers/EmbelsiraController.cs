@@ -20,12 +20,14 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> CreateEmbelsira(Embelsira embelsira)
         {
             return HandleResult(await Mediator.Send(new Create.Command { Embelsira = embelsira }));
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> EditEmbelsira(Guid id, Embelsira embelsira)
         {
             embelsira.Id = id;
@@ -33,6 +35,7 @@ namespace ProjLabCourse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.Admin)]
         public async Task<IActionResult> DeleteEmbelsira(Guid id)
         {
             return HandleResult(await Mediator.Send(new Delete.Command { Id = id }));
