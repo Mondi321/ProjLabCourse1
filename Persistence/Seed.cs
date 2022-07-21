@@ -18,21 +18,21 @@ namespace Persistence
                 {
                     new Pije
                     {
-                        Emri = "Pija 1",
-                        Perberesit = "Perbersi1, perberesi2, perberesi3",
+                        Emri = "Island Iced Tea",
+                        Perberesit = "tea, orange juice, lime juice",
                         Cmimi = 1.50
                     },
                     new Pije
                     {
-                        Emri = "Pija 2",
-                        Perberesit = "Perbersi1, perberesi2, perberesi3",
-                        Cmimi = 2.50
+                        Emri = "Cuba Libre",
+                        Perberesit = "orange juice, gin, white rum",
+                        Cmimi = 2.00
                     },
                     new Pije
                     {
-                        Emri = "Pija 3",
-                        Perberesit = "Perbersi1, perberesi2, perberesi3",
-                        Cmimi = 2.00
+                        Emri = "Cosmopolitan",
+                        Perberesit = "tequila, lime juice, vodka",
+                        Cmimi = 2.50
                     },
                 };
                 await context.Pijet.AddRangeAsync(pijet);
@@ -85,21 +85,21 @@ namespace Persistence
                 {
                     new Embelsira
                     {
-                        Emri = "Embelsira 1",
-                        Perberesit = "Perberesit 1",
-                        Cmimi = 1.00
+                        Emri = "Cheese Cake",
+                        Perberesit = "chocolate, cheese, cream, butter",
+                        Cmimi = 1.50
                     },
                     new Embelsira
                     {
-                        Emri = "Embelsira 2",
-                        Perberesit = "Perberesit 2",
-                        Cmimi = 1.30
+                        Emri = "Chocolate Cake",
+                        Perberesit = "chocolate, cheese, cream, butter",
+                        Cmimi = 1.70
                     },
                     new Embelsira
                     {
-                        Emri = "Embelsira 3",
-                        Perberesit = "Perberesit 3",
-                        Cmimi = 1.20
+                        Emri = "Chocolate Cake1",
+                        Perberesit = "chocolate, cheese, cream, butter",
+                        Cmimi = 1.80
                     },
                 };
                 await context.Embelsirat.AddRangeAsync(embelsirat);
@@ -129,20 +129,30 @@ namespace Persistence
                 await context.Contacts.AddRangeAsync(contacts);
             }
 
-            if (!context.Rezervimet.Any())
+            if (!context.Eventet.Any())
             {
-                var rezervimet = new List<Rezervimi>
+                var eventet = new List<Eventi>
                 {
-                    new Rezervimi
+                    new Eventi
                     {
-                        Data = DateTime.Now,
-                        Mesazhi = "Mesazhi 123",
-                        NrPersonave = 5,
-                        AppUserId = "c4e13b11-5b39-47e3-b166-8c0f12ee6965"
-
+                        Titulli = "Birthday Party",
+                        Pershkrimi = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quae accusamus neque porro eos eum vel ipsa illo dicta? Architecto qui quos illum aliquam officiis facere modi hic, dolor vero.",
+                        Cmimi = 169
+                    },
+                    new Eventi
+                    {
+                        Titulli = "Birthday Party",
+                        Pershkrimi = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quae accusamus neque porro eos eum vel ipsa illo dicta? Architecto qui quos illum aliquam officiis facere modi hic, dolor vero.",
+                        Cmimi = 179
+                    },
+                    new Eventi
+                    {
+                        Titulli = "Birthday Party",
+                        Pershkrimi = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quae accusamus neque porro eos eum vel ipsa illo dicta? Architecto qui quos illum aliquam officiis facere modi hic, dolor vero.",
+                        Cmimi = 200
                     }
                 };
-                await context.Rezervimet.AddRangeAsync(rezervimet);
+                await context.Eventet.AddRangeAsync(eventet);
             }
 
 

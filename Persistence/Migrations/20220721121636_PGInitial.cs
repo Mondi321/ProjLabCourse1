@@ -13,10 +13,10 @@ namespace Persistence.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,22 +27,22 @@ namespace Persistence.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DisplayName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    DisplayName = table.Column<string>(type: "TEXT", nullable: false),
+                    UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
+                    PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "TEXT", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,9 +53,9 @@ namespace Persistence.Migrations
                 name: "Bankat",
                 columns: table => new
                 {
-                    BankaId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    BankaId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Emri = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,12 +66,12 @@ namespace Persistence.Migrations
                 name: "Contacts",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Subject = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Numri = table.Column<long>(type: "bigint", nullable: false),
-                    Mesazhi = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Emri = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Subject = table.Column<string>(type: "TEXT", nullable: false),
+                    Numri = table.Column<long>(type: "INTEGER", nullable: false),
+                    Mesazhi = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,11 +82,11 @@ namespace Persistence.Migrations
                 name: "Embelsirat",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Perberesit = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cmimi = table.Column<double>(type: "float", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Emri = table.Column<string>(type: "TEXT", nullable: false),
+                    Perberesit = table.Column<string>(type: "TEXT", nullable: false),
+                    Cmimi = table.Column<double>(type: "REAL", nullable: false),
+                    Image = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -97,11 +97,11 @@ namespace Persistence.Migrations
                 name: "Eventet",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Titulli = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cmimi = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Pershkrimi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Titulli = table.Column<string>(type: "TEXT", nullable: false),
+                    Cmimi = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Pershkrimi = table.Column<string>(type: "TEXT", nullable: false),
+                    Image = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -112,9 +112,9 @@ namespace Persistence.Migrations
                 name: "Gjinite",
                 columns: table => new
                 {
-                    GjiniaId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    GjiniaE = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    GjiniaId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    GjiniaE = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -125,11 +125,11 @@ namespace Persistence.Migrations
                 name: "Pijet",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Perberesit = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cmimi = table.Column<double>(type: "float", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Emri = table.Column<string>(type: "TEXT", nullable: false),
+                    Perberesit = table.Column<string>(type: "TEXT", nullable: false),
+                    Cmimi = table.Column<double>(type: "REAL", nullable: false),
+                    Image = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -140,10 +140,10 @@ namespace Persistence.Migrations
                 name: "Shtetet",
                 columns: table => new
                 {
-                    ShtetiId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmriPostal = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ShtetiId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Emri = table.Column<string>(type: "TEXT", nullable: false),
+                    EmriPostal = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -154,11 +154,11 @@ namespace Persistence.Migrations
                 name: "Ushqimet",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Perberesit = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cmimi = table.Column<double>(type: "float", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Emri = table.Column<string>(type: "TEXT", nullable: false),
+                    Perberesit = table.Column<string>(type: "TEXT", nullable: false),
+                    Cmimi = table.Column<double>(type: "REAL", nullable: false),
+                    Image = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -169,11 +169,11 @@ namespace Persistence.Migrations
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    RoleId = table.Column<string>(type: "TEXT", nullable: false),
+                    ClaimType = table.Column<string>(type: "TEXT", nullable: true),
+                    ClaimValue = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -190,11 +190,11 @@ namespace Persistence.Migrations
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserId = table.Column<string>(type: "TEXT", nullable: false),
+                    ClaimType = table.Column<string>(type: "TEXT", nullable: true),
+                    ClaimValue = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -211,10 +211,10 @@ namespace Persistence.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                    ProviderKey = table.Column<string>(type: "TEXT", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "TEXT", nullable: true),
+                    UserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -231,8 +231,8 @@ namespace Persistence.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "TEXT", nullable: false),
+                    RoleId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -255,10 +255,10 @@ namespace Persistence.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserId = table.Column<string>(type: "TEXT", nullable: false),
+                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Value = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -275,9 +275,9 @@ namespace Persistence.Migrations
                 name: "Photos",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    Url = table.Column<string>(type: "TEXT", nullable: false),
+                    AppUserId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -293,11 +293,11 @@ namespace Persistence.Migrations
                 name: "Porosite",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NumriPorosise = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MetodaPageses = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Totali = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    NumriPorosise = table.Column<string>(type: "TEXT", nullable: false),
+                    MetodaPageses = table.Column<string>(type: "TEXT", nullable: false),
+                    Totali = table.Column<decimal>(type: "TEXT", nullable: false),
+                    AppUserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -314,10 +314,10 @@ namespace Persistence.Migrations
                 name: "Reviews",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Mesazhi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RatingValue = table.Column<int>(type: "int", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Mesazhi = table.Column<string>(type: "TEXT", nullable: false),
+                    RatingValue = table.Column<int>(type: "INTEGER", nullable: false),
+                    AppUserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -334,11 +334,11 @@ namespace Persistence.Migrations
                 name: "Rezervimet",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Data = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    NrPersonave = table.Column<int>(type: "int", nullable: false),
-                    Mesazhi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Data = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    NrPersonave = table.Column<int>(type: "INTEGER", nullable: false),
+                    Mesazhi = table.Column<string>(type: "TEXT", nullable: false),
+                    AppUserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -355,10 +355,10 @@ namespace Persistence.Migrations
                 name: "Qytetet",
                 columns: table => new
                 {
-                    QytetiId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ShtetiId = table.Column<int>(type: "int", nullable: false)
+                    QytetiId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Emri = table.Column<string>(type: "TEXT", nullable: false),
+                    ShtetiId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -375,13 +375,13 @@ namespace Persistence.Migrations
                 name: "PorosiaDetails",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UshqimiId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    PijeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    EmbelsiraId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    PorosiaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CmimiArtikullit = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Sasia = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    UshqimiId = table.Column<Guid>(type: "TEXT", nullable: true),
+                    PijeId = table.Column<Guid>(type: "TEXT", nullable: true),
+                    EmbelsiraId = table.Column<Guid>(type: "TEXT", nullable: true),
+                    PorosiaId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CmimiArtikullit = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Sasia = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -413,17 +413,17 @@ namespace Persistence.Migrations
                 name: "Stafis",
                 columns: table => new
                 {
-                    StafiId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Mbiemri = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Detyra = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ShtetiId = table.Column<int>(type: "int", nullable: false),
-                    QytetiId = table.Column<int>(type: "int", nullable: true),
-                    GjiniaId = table.Column<int>(type: "int", nullable: false),
-                    BankaId = table.Column<int>(type: "int", nullable: false),
-                    Adresa = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DataLindjes = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    StafiId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Emri = table.Column<string>(type: "TEXT", nullable: false),
+                    Mbiemri = table.Column<string>(type: "TEXT", nullable: false),
+                    Detyra = table.Column<string>(type: "TEXT", nullable: false),
+                    ShtetiId = table.Column<int>(type: "INTEGER", nullable: false),
+                    QytetiId = table.Column<int>(type: "INTEGER", nullable: false),
+                    GjiniaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    BankaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Adresa = table.Column<string>(type: "TEXT", nullable: false),
+                    DataLindjes = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -444,7 +444,8 @@ namespace Persistence.Migrations
                         name: "FK_Stafis_Qytetet_QytetiId",
                         column: x => x.QytetiId,
                         principalTable: "Qytetet",
-                        principalColumn: "QytetiId");
+                        principalColumn: "QytetiId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Stafis_Shtetet_ShtetiId",
                         column: x => x.ShtetiId,
@@ -462,8 +463,7 @@ namespace Persistence.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -489,15 +489,13 @@ namespace Persistence.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Photos_AppUserId",
                 table: "Photos",
                 column: "AppUserId",
-                unique: true,
-                filter: "[AppUserId] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_PorosiaDetails_EmbelsiraId",
